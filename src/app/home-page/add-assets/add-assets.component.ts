@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { BikeserviceService } from 'src/app/services/bikeservice.service';
-import { CarserviceService } from 'src/app/services/carservice.service';
-import { CommercialVehicleServiceService } from 'src/app/services/commercial-vehicle-service.service';
-import { FlatserviceService } from 'src/app/services/flatservice.service';
-import { HouseserviceService } from 'src/app/services/houseservice.service';
-import { IndustrialWithoutshedService } from 'src/app/services/industrial-withoutshed.service';
-import { IndustrialWithshedService } from 'src/app/services/industrial-withshed.service';
-import { LandserviceService } from 'src/app/services/landservice.service';
-import { SiteserviceService } from 'src/app/services/siteservice.service';
+import { BikeserviceService } from 'src/app/services/dropdown services/bikeservice.service';
+import { CarserviceService } from 'src/app/services/dropdown services/carservice.service';
+import { CommercialVehicleServiceService } from 'src/app/services/dropdown services/commercial-vehicle-service.service';
+import { FlatserviceService } from 'src/app/services/dropdown services/flatservice.service';
+import { HouseserviceService } from 'src/app/services/dropdown services/houseservice.service';
+import { IndustrialWithoutshedService } from 'src/app/services/dropdown services/industrial-withoutshed.service';
+import { IndustrialWithshedService } from 'src/app/services/dropdown services/industrial-withshed.service';
+import { LandserviceService } from 'src/app/services/dropdown services/landservice.service';
+import { SiteserviceService } from 'src/app/services/dropdown services/siteservice.service';
 
 
 @Component({
