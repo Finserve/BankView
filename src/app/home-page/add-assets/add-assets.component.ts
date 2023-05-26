@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { BikeserviceService } from 'src/app/services/bikeservice.service';
+import { CarserviceService } from 'src/app/services/carservice.service';
+import { CommercialVehicleServiceService } from 'src/app/services/commercial-vehicle-service.service';
+import { FlatserviceService } from 'src/app/services/flatservice.service';
+import { HouseserviceService } from 'src/app/services/houseservice.service';
+import { IndustrialWithoutshedService } from 'src/app/services/industrial-withoutshed.service';
+import { IndustrialWithshedService } from 'src/app/services/industrial-withshed.service';
+import { LandserviceService } from 'src/app/services/landservice.service';
+import { SiteserviceService } from 'src/app/services/siteservice.service';
 
 
 @Component({
@@ -25,7 +34,10 @@ export class AddAssetsComponent {
   imageSrcseven;
   imageSrceight;
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
+                    private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
+                    private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
+                    private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) { }
 
   addAssets = this.fb.group({
     assetType: ['', Validators.required],
@@ -71,49 +83,98 @@ export class AddAssetsComponent {
 
 
   Assets: Array<any> = [
-    'Two Wheeler',
-    'Four Whheeler',
-    'commercial vechiles',
-    'flats',
-    'houses',
-    'land',
-    'sites',
-    'industrial land with shed',
-    'industrial land without shed',
-    'industrial sites with shed',
-    'industrial sites without shed',
-  ];
+    'Bikes',
+    'Cars',
+    'Commercial vehicles',
+    'Flats',
+    'Houses',
+    'Land',
+    'Sites',
+    'Industrial land & site with shed',
+    'Industrial land & site without shed'
+    // 'industrial sites with shed',
+    // 'industrial sites without shed',
+];
 
-  changeAssettype(event: any) {
+
+
+changeAssettype(event: any) {
     const value = event.target.value;
     // console.log(value);
+
+    //if user selected Bikes
     if (value == this.Assets[0]) {
-      this.assetDetailone = ['Two Wheeler','Spain','USA','Mexico','India']
-      this.assetDetailtwo = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailthree = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfive = ['Two Wheeler','Spain','USA','Mexico','India']
+     this.assetDetailone = this.bikeservice.Brands;
+     this.assetDetailtwo = this.bikeservice.Models;
+     this.assetDetailthree = this.bikeservice.Versions;
+     this.assetDetailfour = this.bikeservice.YearOfMake;
+     this.assetDetailfive = this.bikeservice.FuelType;
     }
-
+    //if user selected Cars
     if (value == this.Assets[1]) {
-      this.assetDetailone = ['Two Wheeler','Spain','USA','Mexico','India']
-      this.assetDetailtwo = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailthree = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfive = ['Two Wheeler','Spain','USA','Mexico','India']
+     this.assetDetailone = this.carservice.Brands;
+     this.assetDetailtwo = this.carservice.Models;
+     this.assetDetailthree = this.carservice.Versions;
+     this.assetDetailfour = this.carservice.YearOfMake;
+     this.assetDetailfive = this.carservice.FuelType;
     }
-
+    //if user selected commercial vehicles
     if (value == this.Assets[2]) {
-      this.assetDetailone = ['Two Wheeler','Spain','USA','Mexico','India']
-      this.assetDetailtwo = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailthree = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfour = ['Two Wheeler','Spain','USA','Mexico','India'],
-      this.assetDetailfive = ['Two Wheeler','Spain','USA','Mexico','India']
+     this.assetDetailone = this.commercialservice.Brands;
+     this.assetDetailtwo = this.commercialservice.Models;
+     this.assetDetailthree = this.commercialservice.Versions;
+     this.assetDetailfour = this.commercialservice.YearOfMake;
+     this.assetDetailfive = this.commercialservice.FuelType;
     }
-  }
+     //if user selected Flats
+     if (value == this.Assets[3]) {
+     this.assetDetailone = this.flatservice.BHK;
+     this.assetDetailtwo = this.flatservice.Facing;
+     this.assetDetailthree = this.flatservice.propertystatus;
+     this.assetDetailfour = this.flatservice.FlatType;
+     this.assetDetailfive = this.flatservice.Age
+    }
+    //if user selected Houses
+    if (value == this.Assets[4]) {
+     this.assetDetailone = this.flatservice.BHK;
+     this.assetDetailtwo = this.flatservice.Facing;
+     this.assetDetailthree = this.flatservice.propertystatus;
+     this.assetDetailfour = this.flatservice.FlatType;
+     this.assetDetailfive = this.flatservice.Age
+    }
+    //if user selected Lands
+    if (value == this.Assets[5]) {
+     this.assetDetailone = this.landservice.Area;
+     this.assetDetailtwo = this.landservice.Ownership;
+     this.assetDetailthree = this.landservice.boundarywall;
+     this.assetDetailfour = this.landservice.Security;
+     this.assetDetailfive = this.landservice.ElectricityandWater
+    }
+    //if user selected Sites
+    if (value == this.Assets[6]) {
+     this.assetDetailone = this.siteservice.Area;
+     this.assetDetailtwo = this.siteservice.Ownership;
+     this.assetDetailthree = this.siteservice.boundarywall;
+     this.assetDetailfour = this.siteservice.Security;
+     this.assetDetailfive = this.siteservice.ElectricityandWater
+    }
+    //if user selected industrial lands&site with shed
+    if (value == this.Assets[7]) {
+     this.assetDetailone = this.industrialwithshedservice.Area;
+     this.assetDetailtwo = this.industrialwithshedservice.Ownership;
+     this.assetDetailthree = this.industrialwithshedservice.boundarywall;
+     this.assetDetailfour = this.industrialwithshedservice.Security;
+     this.assetDetailfive = this.industrialwithshedservice.ElectricityandWater
+    }
+    //if user selected industrial lands&site without shed
+    if (value == this.Assets[8]) {
+     this.assetDetailone = this.industrialwithoutshedservice.Area;
+     this.assetDetailtwo = this.industrialwithoutshedservice.Ownership;
+     this.assetDetailthree = this.industrialwithoutshedservice.boundarywall;
+     this.assetDetailfour = this.industrialwithoutshedservice.Security;
+     this.assetDetailfive = this.industrialwithoutshedservice.ElectricityandWater
+    }
+}
 
 
 readURLone(event): void {

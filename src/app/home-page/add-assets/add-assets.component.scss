@@ -7,7 +7,7 @@ p{
 select{
     border: 1px solid black;
     text-align: center;
-    width: auto;
+    width: 200px;
     border-radius: 20px;
     height: 40px;
     font-size: 18px;
@@ -24,6 +24,7 @@ select{
 
 .select-assetType{
     margin-left: 20px;
+    width: 28%;
 }
 p{
     font-size: 20px;
