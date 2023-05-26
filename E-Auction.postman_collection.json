@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "0aa00af6-6aab-49fe-b7b9-614e7276902e",
+		"name": "E-Auction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"gsanil41111@gmail.com\",\r\n    \"password\":\"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"gsanil41111@gmail.com\",\r\n    \"password\":\"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"refresh\" :\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NTIwNTI0MywiaWF0IjoxNjg1MDMyNDQzLCJqdGkiOiJlYjcwOWM1NGNiY2Y0OGEzOWZiMmQyMDRlNmY2YTA2MCIsInVzZXJfaWQiOjEwfQ.ylHKwfoXaXaoRJqYXKfGyP8yCWluCOD33eELxVsfhxggr6_J-HDgh48QkA34zKft6elciwwuvg4z3jNs0jat9g\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/refresh-token",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
