@@ -33,6 +33,8 @@ export class AddAssetsComponent {
   imageSrcsix;
   imageSrcseven;
   imageSrceight;
+  textShow:any;
+  textShow1:any;
 
   constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
                     private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
@@ -49,35 +51,42 @@ export class AddAssetsComponent {
     assetDetailfive:['', Validators.required]
     }),
     assetDocuments: this.fb.group({
-      documentOne:['', Validators.required],
-      documentTwo:['', Validators.required],
-      documentThree:['', Validators.required],
-      documentFour:['', Validators.required],
+      documentOne:[''],
+      documentTwo:[''],
+      documentThree:[''],
+      documentFour:[''],
     }),
     assetImages:this.fb.group({
-      imageOne:['', Validators.required],
-      imageTwo:['', Validators.required],
-      imageThree:['', Validators.required],
-      imageFour:['', Validators.required],
-      imageFive:['', Validators.required],
-      imageSix:['', Validators.required],
-      imageSeven:['', Validators.required],
-      imageEight:['', Validators.required],
+      imageOne:[''],
+      imageTwo:[''],
+      imageThree:[''],
+      imageFour:[''],
+      imageFive:[''],
+      imageSix:[''],
+      imageSeven:[''],
+      imageEight:[''],
     }),
     assetDiscrition:this.fb.group({
       description:['', Validators.required],
-      loanLended:['', Validators.required,  Validators.pattern("^[0-9]*$")],
-      loanRecovered:['', Validators.required, Validators.pattern("^[0-9]*$")],
-      finalPrice:['', Validators.required,  Validators.pattern("^[0-9]*$") ]
+      loanLended:['', Validators.required, ],
+      loanRecovered:['', Validators.required, ],
+      finalPrice:['', Validators.required,]
     })
   });
 
   onSubmit() {
-    this.formSubmitted = true;
+   
     if (this.addAssets.valid){
       console.log(this.addAssets.value);
+      this.addAssets.reset();
+    this.textShow = true;
+    this.textShow1=false;
+    this.formSubmitted = false;
       return;
     }
+    this.formSubmitted = true;
+    this.textShow = false;
+    this.textShow1=true;
     // console.log(this.addAssets.value);
   }
 

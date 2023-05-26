@@ -7,14 +7,14 @@
             <option *ngFor="let asset of Assets">{{asset}}</option>
         </select>
     </div>
-    <div
-        *ngIf="formSubmitted || addAssets.controls['assetType'].invalid && (addAssets.controls['assetType'].dirty || addAssets.controls['assetType'].touched)">
+    <div 
+        *ngIf="addAssets.controls['assetType'].invalid && (addAssets.controls['assetType'].dirty|| addAssets.controls['assetType'].touched) ">
         <p class="text-danger"> Please enter Asset Type</p>
     </div>
 
     <hr>
 
-    <div class="container-fluid first-dropdowwn" formGroupName="assetsDetails">
+    <div class="container-fluid first-dropdowwn" formGroupName="assetsDetails" >
         <p>Select Assets Details :</p>
         <div class="row asset-detail">
             <div class="col-lg col-md-4 col-sm-6">
@@ -22,16 +22,18 @@
                     <option value="" disabled selected>-Select your option-</option>
                     <option *ngFor="let detailone of assetDetailone">{{detailone}}</option>
                 </select>
+                <div *ngIf=" addAssets.get('assetDetailone')?.invalid||addAssets.get('assetDetailone')?.dirty">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
-            <!-- <div *ngIf="formSubmitted || addAssets.assetsDetails.controls['assetDetailone'].invalid && (assetsDetails.controls['assetDetailone'].dirty || assetsDetails.controls['assetDetailone'].touched)">
-                <p class="text-danger"> Please enter Asset Type</p>
-            </div>
-             -->
             <div class="col-lg col-md-4 col-sm-6 asset-detail-min-width">
                 <select formControlName="assetDetailtwo">
                     <option value="" disabled selected>-Select your option-</option>
                     <option *ngFor="let detailtwo of assetDetailtwo">{{detailtwo}}</option>
                 </select>
+                <div *ngIf=" addAssets.get('assetDetailtwo')?.invalid ||addAssets.get('assetDetailtwo')?.dirty">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
 
             <div class="col-lg col-md-4 col-sm-6 second-row asset-detail-min-width">
@@ -39,6 +41,9 @@
                     <option value="" disabled selected>-Select your option-</option>
                     <option *ngFor="let detailthree of assetDetailthree">{{detailthree}}</option>
                 </select>
+                <div *ngIf="addAssets.get('assetDetailthree')?.invalid||(addAssets.get('assetDetailthree')?.touched||addAssets.get('assetDetailthree')?.dirty)">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
 
             <div class="col-lg col-md-4 col-sm-6 second-row assetDetailFourthSelect">
@@ -46,6 +51,9 @@
                     <option value="" disabled selected>-Select your option-</option>
                     <option *ngFor="let detailfour of assetDetailfour">{{detailfour}}</option>
                 </select>
+                <div *ngIf=" addAssets.get('assetDetailfour')?.invalid||addAssets.get('assetDetailfour')?.dirty">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
 
             <div class="col-lg col-md-4 col-sm-6 second-row assetDetailFifthSelect">
@@ -53,6 +61,9 @@
                     <option value="" disabled selected>-Select your option-</option>
                     <option *ngFor="let detailfive of assetDetailfive">{{detailfive}}</option>
                 </select>
+                <div *ngIf=" addAssets.get('assetDetailfive')?.invalid||addAssets.get('assetDetailfive')?.dirty">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
         </div>
     </div>
@@ -64,16 +75,16 @@
     <div class="container-fluid first-dropdowwn" formGroupName="assetDocuments">
         <p>Upload Documents :</p>
         <div class="row doc-upload">
-            <div class="col-md-3">
+            <div class="col-md-4 col-lg-3">
                 <input type="file" id="customFile" accept="application/pdf" formControlName="documentOne" />
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4 col-lg-3">
                 <input type="file" id="customFile" accept="application/pdf" formControlName="documentTwo" />
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4 col-lg-3">
                 <input type="file" id="customFile" accept="application/pdf" formControlName="documentThree" />
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4 col-lg-3">
                 <input type="file" id="customFile" accept="application/pdf" formControlName="documentFour" />
             </div>
         </div>
@@ -145,25 +156,46 @@
         <div class="row input-fields">
             <div class="col-md-6 col-sm text-center">
                 <textarea formControlName="description"></textarea>
+                <div *ngIf=" addAssets.get('description')?.invalid||addAssets.get('description')?.dirty">
+                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                </div>
             </div>
             <div class="col-md-6 col-sm">
                 <div class="row input">
                     <div class="col-3">  <label>Loan Lended</label></div>
-                    <div class="col-9"><input formControlName="loanLended"></div>
+                    <div class="col-9"><input formControlName="loanLended">
+                        <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
+                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                        </div>
+                    </div>
                 </div>
+               
                 <div class="row input">
                     <div class="col-3">  <label>Loan recovered</label></div>
-                    <div class="col-9"> <input formControlName="loanRecovered"></div>
+                    <div class="col-9"> <input formControlName="loanRecovered">
+                        <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
+                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                        </div>
+                       
+                    </div>
                 </div>
+                
                 <div class="row input">
                     <div class="col-3"> <label>Final Pricing</label></div>
-                    <div class="col-9"><input formControlName="finalPrice"></div>
+                    <div class="col-9"><input formControlName="finalPrice">
+                        <div *ngIf=" addAssets.get('finalPrice')?.invalid||addAssets.get('finalPrice')?.dirty">
+                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         </div>
     </div>
 <div class="text-center">
     <button class="submit-btn" type="submit">Submit</button>
+    <p class="login-txt" *ngIf="textShow">Sucessfully Registered</p>
+    <p class="login-txt" *ngIf="textShow1">Please enter all the values</p>
 </div>
 </form>
 
