@@ -1,0 +1,61 @@
+.bg-image{
+    background-image: url('^assets/bankie.png');
+    width: 100%;
+    background-size: contain;
+    // height: 100%;
+    }
+    .mask{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        width: 100%;
+        border-radius: 40px;
+     
+    }
+    
+    input{
+        font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+        border: 2px solid #FF7A7A;
+        border-radius: 10px;
+        margin:10px;
+        padding: 10px;
+        width:auto;
+        
+    }
+    .card{
+        width: 350px;
+    }
+    .button{
+        background-color: #FF7A7A;
+        color:white;
+        border: none;
+        width:150px;
+        font-size: 18px;
+        font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+        padding: 10px;
+        margin:10px;
+    }
+    
+    .signin{
+        text-decoration: none;
+        font-weight: 500;
+        font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+        color:#9408D6
+    }
+    p{
+        font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    }
+    
+    @media only screen and (min-width:768px) and (max-width: 991px) {
+        .mask{
+
+            height: 900px;        
+        }
+        .bg-image{
+           
+            background-size: cover;
+            // height: 100%;
+            }
+    }
+    
