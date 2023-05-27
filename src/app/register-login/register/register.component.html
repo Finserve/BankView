@@ -1,4 +1,48 @@
 <app-register-login-navbar></app-register-login-navbar>
 
-<p>hello</p>
+<div class=" text-center bg-image " >
+    <div class="mask">
+      <div class="register-card ">
+        <div class="">
+          
+          <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">Register</h5>
+  
+              <form [formGroup]="registerForm" (ngSubmit)="register()">
+              <div >
+                <input id="name"  type="text" formControlName="Name" placeholder="Name" required />        
+              </div>
+          
+              <div>    
+                <input id="Email" type="email" formControlName="Email" placeholder="Email" required />
+              </div>
+          
+              <div>      
+                <input id="pwd" type="password" formControlName="password" placeholder="Password" required />
+              </div>
+          
+              <div>              
+                <input id="cpwd" type="password" formControlName="confirmpassword" placeholder=" Confirm Password"required />
+              </div>
+          
+              <div>
+
+                <button class="button" type="submit">
+                  Register
+                </button>
+                <p>Already have an account?  <a class="signin" routerLink="/login" >Login</a></p>
+
+  
+              </div>
+              <p class="login-txt text-success" *ngIf="textShow">Sucessfully Registered</p>
+              <p class="login-txt text-danger" *ngIf="textShow1">Oops!.... Not Registered</p>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <app-footer></app-footer>

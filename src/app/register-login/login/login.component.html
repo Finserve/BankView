@@ -1,4 +1,40 @@
 
 <app-register-login-navbar></app-register-login-navbar>
-<button routerLink="/home">Login </button>
+
+<div class=" text-center bg-image " >
+    <div class="mask">
+      <div class="register-card ">
+        <div class="">
+          
+          <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">Login</h5>
+  
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+             
+          
+              <div>    
+                <input id="Email" type="email" formControlName="Email" placeholder="E-mail Id" required />
+              </div>
+          
+              <div>      
+                <input id="pwd" type="password" formControlName="password" placeholder="Password" required />
+              </div>
+          
+              <div>
+                <button class="button" type="submit"  >
+                  Login
+                </button>
+                <p>Don’t have an account?    <a class="signin" routerLink="/register" > Register</a></p>
+  
+              </div>
+              <p class="login-txt text-danger" *ngIf="textShow1">Oops!.... Error Occured</p>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero -->
 <app-footer></app-footer>
