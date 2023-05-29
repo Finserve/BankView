@@ -9,7 +9,7 @@
             <div class="card-body">
               <h5 class="card-title">Register</h5>
   
-              <form [formGroup]="registerForm" (ngSubmit)="register()">
+              <form [formGroup]="registerForm" (ngSubmit)="register(this.registerForm.value)">
               <div >
                 <input id="name"  type="text" formControlName="Name" placeholder="Name" required />        
               </div>
@@ -37,6 +37,7 @@
               </div>
               <p class="login-txt text-success" *ngIf="textShow">Sucessfully Registered</p>
               <p class="login-txt text-danger" *ngIf="textShow1">Oops!.... Not Registered</p>
+              <p class="login-txt text-danger" *ngIf="textShow2">Something went wrong</p>
             </form>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterLoginRoutingModule } from './register-login-routing.module';
 import { RegisterLoginComponent } from './register-login.component';
@@ -21,7 +23,9 @@ import { RegisterLoginNavbarComponent } from './register-login-navbar/register-l
     CommonModule,
     RegisterLoginRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule
   ],
   exports: [
     RegisterLoginComponent,

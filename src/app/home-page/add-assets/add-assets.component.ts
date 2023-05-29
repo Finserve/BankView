@@ -10,7 +10,7 @@ import { IndustrialWithoutshedService } from 'src/app/services/dropdown services
 import { IndustrialWithshedService } from 'src/app/services/dropdown services/industrial-withshed.service';
 import { LandserviceService } from 'src/app/services/dropdown services/landservice.service';
 import { SiteserviceService } from 'src/app/services/dropdown services/siteservice.service';
-import * as data from 'src/E-Auction.postman_collection.json'
+
 
 @Component({
   selector: 'app-add-assets',
@@ -36,13 +36,13 @@ export class AddAssetsComponent {
   textShow:any;
   textShow1:any;
 
-  products: any = (data as any).default;
+
 
   constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
                     private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
                     private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
                     private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {
-                      console.log(data);
+                    
                      }
 
   addAssets = this.fb.group({
