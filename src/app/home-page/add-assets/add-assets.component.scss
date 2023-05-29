@@ -12,7 +12,6 @@ select{
     height: 40px;
     font-size: 18px;
     font-weight: bold;
-   
 }
 
 .doc-upload{
@@ -84,6 +83,12 @@ option{
         // margin-left: 10px;
     }
 }
+
+#hidearrows::-webkit-inner-spin-button, #hidearrows::-webkit-outer-spin-button { 
+    -webkit-appearance: none; margin: 0; 
+}
+
+
 .submit-btn{
     font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
     font-size: 22px;

@@ -76,16 +76,16 @@
         <p>Upload Documents :</p>
         <div class="row doc-upload">
             <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentOne" />
+                <input type="file" id="customFile" accept="application/pdf" formControlName="documentOne" accept=".pdf,.docx"/>
             </div>
             <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentTwo" />
+                <input type="file" id="customFile" accept="application/pdf" formControlName="documentTwo" accept=".pdf,.docx"/>
             </div>
             <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentThree" />
+                <input type="file" id="customFile" accept="application/pdf" formControlName="documentThree" accept=".pdf,.docx"/>
             </div>
             <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentFour" />
+                <input type="file" id="customFile" accept="application/pdf" formControlName="documentFour" accept=".pdf,.docx"/>
             </div>
         </div>
     </div>
@@ -99,49 +99,49 @@
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcone || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLone($event);" class="ps-1" formControlName="imageOne" />
+                    <input type='file' (change)="readURLone($event);" class="ps-1" formControlName="imageOne" accept="image/*" />
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrctwo || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLtwo($event);" class="ps-1" formControlName="imageTwo" />
+                    <input type='file' (change)="readURLtwo($event);" class="ps-1" formControlName="imageTwo" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcthree || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLthree($event);" class="ps-1" formControlName="imageThree" />
+                    <input type='file' (change)="readURLthree($event);" class="ps-1" formControlName="imageThree" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcfour || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLfour($event);" class="ps-1" formControlName="imageFour" />
+                    <input type='file' (change)="readURLfour($event);" class="ps-1" formControlName="imageFour" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcfive || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLfive($event);" class="ps-1" formControlName="imageFive" />
+                    <input type='file' (change)="readURLfive($event);" class="ps-1" formControlName="imageFive" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcsix || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLsix($event);" class="ps-1" formControlName="imageSix" />
+                    <input type='file' (change)="readURLsix($event);" class="ps-1" formControlName="imageSix" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcseven || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLseven($event);" class="ps-1" formControlName="imageSeven" />
+                    <input type='file' (change)="readURLseven($event);" class="ps-1" formControlName="imageSeven" accept="image/*"/>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrceight || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLeight($event);" class="ps-1" formControlName="imageEight" />
+                    <input type='file' (change)="readURLeight($event);" class="ps-1" formControlName="imageEight" accept="image/*"/>
                 </div>
             </div>
         </div>
@@ -163,7 +163,7 @@
             <div class="col-md-6 col-sm">
                 <div class="row input">
                     <div class="col-3">  <label>Loan Lended</label></div>
-                    <div class="col-9"><input formControlName="loanLended">
+                    <div class="col-9"><input formControlName="loanLended" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>
@@ -172,7 +172,7 @@
                
                 <div class="row input">
                     <div class="col-3">  <label>Loan recovered</label></div>
-                    <div class="col-9"> <input formControlName="loanRecovered">
+                    <div class="col-9"> <input formControlName="loanRecovered" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>
@@ -182,7 +182,7 @@
                 
                 <div class="row input">
                     <div class="col-3"> <label>Final Pricing</label></div>
-                    <div class="col-9"><input formControlName="finalPrice">
+                    <div class="col-9"><input formControlName="finalPrice" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('finalPrice')?.invalid||addAssets.get('finalPrice')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>
