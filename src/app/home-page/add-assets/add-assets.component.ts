@@ -72,9 +72,9 @@ export class AddAssetsComponent {
     }),
     assetDiscrition:this.fb.group({
       description:['', Validators.required],
-      loanLended:['', Validators.required, ],
-      loanRecovered:['', Validators.required, ],
-      finalPrice:['', Validators.required,]
+      loanLended:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
+      loanRecovered:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
+      finalPrice:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')])]
     })
   });
 

@@ -24,3 +24,12 @@ a,
 .navbar-toggler:focus{
     box-shadow: none !important;
 }
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+    border-bottom: 2px solid #fff; 
+    color: #FFFFFF;
+  }
+  @media only screen and (min-width: 991px) {
+    .nav-item{
+        margin: 0px 10px;
+    }
+  }

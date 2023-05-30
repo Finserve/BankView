@@ -36,7 +36,7 @@ button,
     display: none ;
 }
 }
-.asstes-txt:hover{
+.asstes-txt:hover{ 
     .assets-submenu{
         position:absolute;
         z-index: 999;
@@ -110,4 +110,13 @@ a{
         width: 100%;
         height: auto;
     }
+}
+.navbar-logo,.logo-txt{
+    cursor: pointer;
+}
+
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+  border-bottom: 2px solid #fff; 
+  color: #FFFFFF;
 }

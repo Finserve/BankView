@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <div class="navbar-logo">
+        <div class="navbar-logo" routerLink="/home">
             <img src="assets/navbar_logo.png" alt="Logo">
         </div>
-        <p class="logo-txt">Assets Square</p>
+        <p class="logo-txt" routerLink="/home">Assets Square</p>
 
         <button _ngcontent-ota-c38="" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"
@@ -14,20 +14,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link nav-txt" routerLink="/home">
+                    <a class="nav-link nav-txt" routerLink="/home" routerLinkActive="active">
                         Home
                     </a>
                 </li>
                 <li class="nav-item asstes-txt">
-                    <a class="nav-link nav-txt" routerLinkActive="active-link">
-                        Assets
+                    <a class="nav-link nav-txt" routerLink="/asset-List" routerLinkActive="active">
+                        Assets List
                     </a>
-                    <ul class="assets-submenu list-unstyled">
-                        <li><a routerLink="/add-assets"  >Add Assets</a> </li>
-                        <li class="assets-list"> <a routerLink="/asset-List">Assets List</a></li>
-                    </ul>
+                    <!-- <ul class="assets-submenu list-unstyled">
+                        <li><a routerLink="/add-assets" routerLinkActive="active" >Add Assets</a> </li>
+                        <li class="assets-list"> <a routerLink="/asset-List" routerLinkActive="active">Assets List</a></li>
+                    </ul> -->
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="/add-assets" routerLinkActive="active">
+                   Add Assets
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" x data-bs-toggle="modal" data-bs-target="#logoutModal">
                         <img src="assets/logout.svg" alt="Register"><span class="nav-txt">Logout</span>
                     </a>
