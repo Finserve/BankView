@@ -15,9 +15,10 @@ export class RegisterComponent {
   name: any;
   textShow: boolean;
   textShow1: boolean;
+  textShow2:boolean;
 
   passmatch:boolean;
- constructor(private fb: FormBuilder) { }
+ constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService) { }
  registerForm = this.fb.group({
    Name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
    Email:['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
@@ -41,18 +42,40 @@ export class RegisterComponent {
    }
    return this.value == this.value1 ? null : { passwordNotMatch: true };
  }
- register(){
-if(this.registerForm.valid){
-console.log(this.registerForm.value)
-this.textShow = true;
-this.textShow1 = false;
-this.registerForm.reset;
+ register(registerusers: RegisterUser) {
+  if (this.registerForm.valid) {
+    console.log(registerusers);
+    this.registerService.addUser(registerusers).subscribe(
+      (res => {
+        this.textShow = true;
+        this.textShow1 = false;
+        // this.registerusers.push(res);
+        console.log("you did it");
+        this.registerForm.reset;
+      }),
+      error => {
+        console.log(error);
+        this.textShow2=true;
+        this.textShow = false;
+        this.textShow1 = false;
+      }
+    )
+    // console.log(this.registerForm.value.Name)
+    for (let i = 0; i < this.registerForm.value.length; i++) {
+      console.log(this.registerForm.value[i])
+    }
+    // this.sucessfulregister(this.registerForm.value);
+  }
+  else {
+    console.log('not valid')
+    this.textShow = false;
+    this.textShow1 = true;
+  }
 }
- else{
-  this.textShow = false;
-this.textShow1 = true;
- console.log('not valid')
- }
- }
 
-  
+
+// sucessfulregister() {
+
+// }
+
+}
