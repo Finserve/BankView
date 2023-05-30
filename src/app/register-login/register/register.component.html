@@ -13,11 +13,11 @@
                             <div>
                                 <input id="Name" type="text" formControlName="Name" placeholder="Name" required/>
                                 <div *ngIf="registerForm.controls['Name'].hasError('required') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
-                                    <p class="text-danger">Please enter Name </p>
+                                    <p class="text-danger mb-0">Please enter Name </p>
                                    
                                 </div>
                                 <div *ngIf="registerForm.controls['Name'].hasError('pattern') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
-                                    <p class="text-danger">Please enter Valid Name</p>
+                                    <p class="text-danger mb-0">Please enter Valid Name</p>
                                 </div>
 
                             </div>
@@ -25,11 +25,11 @@
                             <div>
                                 <input id="Email" type="email" formControlName="Email"  placeholder="Email" required />
                                 <div *ngIf="registerForm.controls['Email'].hasError('required') && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
-                                    <p class="text-danger">Please enter Email </p>
+                                    <p class="text-danger mb-0">Please enter Email </p>
                                    
                                 </div>
                                 <div *ngIf="registerForm.controls['Email'].hasError('pattern') && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
-                                    <p class="text-danger">Please enter Valid Email</p>
+                                    <p class="text-danger mb-0">Please enter Valid Email</p>
                                 </div>
 
                                 
@@ -39,17 +39,17 @@
                                 <input id="pwd" type="password" formControlName="password" placeholder="Password"
                                     required />
                                     <div *ngIf="registerForm.controls['password'].hasError('required') && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
-                                        <p class="text-danger">Please enter password </p>
+                                        <p class="text-danger mb-0">Please enter password </p>
                                         </div>
                                     <div *ngIf="registerForm.controls['password'].hasError('minlength') && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
-                                        <p class="text-danger">Minimum length is 5 </p>
+                                        <p class="text-danger mb-0">Minimum length is 5 </p>
                                     </div>
                             </div>
 
                             <div>
                                 <input id="cpwd" type="password" formControlName="confirmpassword"
                                     placeholder=" Confirm Password" required />
-                                    <p class="login-txt text-danger" *ngIf="passmatch">
+                                    <p class="login-txt text-danger mb-0" *ngIf="passmatch">
                                        password not match
                                     </p>
                             </div>

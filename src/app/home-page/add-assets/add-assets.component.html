@@ -156,16 +156,20 @@
         <div class="row input-fields">
             <div class="col-md-6 col-sm text-center">
                 <textarea formControlName="description"></textarea>
-                <div *ngIf=" addAssets.get('description')?.invalid||addAssets.get('description')?.dirty">
-                    <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                <div *ngIf="addAssets.get('description')?.hasError('required') && addAssets.get('description')?.dirty || addAssets.get('description')?.touched">
+                    <p class="text-danger p-0 m-0"> Please enter the description </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm">
                 <div class="row input">
                     <div class="col-4">  <label>Loan Lended</label></div>
-                    <div class="col-8"><input formControlName="loanLended" type="number" id="hidearrows">
-                        <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
-                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                    <div class="col-8">
+                        <input formControlName="loanLended" type="number" id="hidearrows">
+                        <div *ngIf="addAssets.get('loanLended')?.hasError('required') && (addAssets.get('loanLended')?.dirty ||addAssets.get('loanLended')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter Amount </p>
+                        </div>
+                        <div *ngIf="addAssets.get('loanLended')?.hasError('pattern') && (addAssets.get('loanLended')?.dirty || addAssets.get('loanLended')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter proper amount</p>
                         </div>
                     </div>
                 </div>
@@ -173,18 +177,26 @@
                 <div class="row input">
                     <div class="col-4">  <label>Loan recovered</label></div>
                     <div class="col-8"> <input formControlName="loanRecovered" type="number" id="hidearrows">
-                        <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
-                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+
+                        <div *ngIf="addAssets.get('loanRecovered')?.hasError('required') && (addAssets.get('loanRecovered')?.dirty ||addAssets.get('loanRecovered')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter Amount </p>
                         </div>
-                       
+                        <div *ngIf="addAssets.get('loanRecovered')?.hasError('pattern') && (addAssets.get('loanRecovered')?.dirty || addAssets.get('loanRecovered')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter proper amount</p>
+                        </div>
+    
                     </div>
                 </div>
                 
                 <div class="row input">
                     <div class="col-4"> <label>Final Pricing</label></div>
                     <div class="col-8"><input formControlName="finalPrice" type="number" id="hidearrows">
-                        <div *ngIf=" addAssets.get('finalPrice')?.invalid||addAssets.get('finalPrice')?.dirty">
-                            <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
+                        <div *ngIf="addAssets.get('finalPrice')?.hasError('required') && (addAssets.get('finalPrice')?.dirty ||addAssets.get('finalPrice')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter Amount</p>
+                           
+                        </div>
+                        <div *ngIf="addAssets.get('finalPrice')?.hasError('pattern') && (addAssets.get('finalPrice')?.dirty || addAssets.get('finalPrice')?.touched)">
+                            <p class="text-danger p-0 m-0">Please enter proper amount</p>
                         </div>
                     </div>
                 
@@ -194,7 +206,7 @@
     </div>
 <div class="text-center">
     <button class="submit-btn" type="submit">Submit</button>
-    <p class="login-txt" *ngIf="textShow">Sucessfully Registered</p>
+    <p class="login-txt text-success" *ngIf="textShow">Sucessfully Submitted</p>
     <p class="login-txt text-danger" *ngIf="textShow1">Please enter all the values</p>
 </div>
 </form>
