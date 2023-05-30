@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Register</h5>
 
-                        <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        <form [formGroup]="registerForm" (ngSubmit)="register((this.registerForm.value))">
                             <div>
                                 <input id="Name" type="text" formControlName="Name" placeholder="Name" required/>
                                 <div *ngIf="registerForm.controls['Name'].hasError('required') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
