@@ -162,8 +162,8 @@
             </div>
             <div class="col-md-6 col-sm">
                 <div class="row input">
-                    <div class="col-3">  <label>Loan Lended</label></div>
-                    <div class="col-9"><input formControlName="loanLended" type="number" id="hidearrows">
+                    <div class="col-4">  <label>Loan Lended</label></div>
+                    <div class="col-8"><input formControlName="loanLended" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>
@@ -171,8 +171,8 @@
                 </div>
                
                 <div class="row input">
-                    <div class="col-3">  <label>Loan recovered</label></div>
-                    <div class="col-9"> <input formControlName="loanRecovered" type="number" id="hidearrows">
+                    <div class="col-4">  <label>Loan recovered</label></div>
+                    <div class="col-8"> <input formControlName="loanRecovered" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('loanRecovered')?.invalid||addAssets.get('loanRecovered')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>
@@ -181,8 +181,8 @@
                 </div>
                 
                 <div class="row input">
-                    <div class="col-3"> <label>Final Pricing</label></div>
-                    <div class="col-9"><input formControlName="finalPrice" type="number" id="hidearrows">
+                    <div class="col-4"> <label>Final Pricing</label></div>
+                    <div class="col-8"><input formControlName="finalPrice" type="number" id="hidearrows">
                         <div *ngIf=" addAssets.get('finalPrice')?.invalid||addAssets.get('finalPrice')?.dirty">
                             <p class="text-danger p-0 m-0"> Please enter Asset Type</p>
                         </div>

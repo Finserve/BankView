@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent  {
   name:any;
   textShow1: boolean;
  constructor(private fb: FormBuilder,private router: Router) { }
@@ -39,4 +38,5 @@ console.log(this.loginForm.value)
  console.log('not valid')
  }
  }
+
 }
