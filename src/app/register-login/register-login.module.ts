@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterLoginNavbarComponent } from './register-login-navbar/register-login-navbar.component';
+import { ForgotPwdComponent } from './forgot-pwd/forgot-pwd.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegisterLoginNavbarComponent } from './register-login-navbar/register-l
     LoginComponent,
     FooterComponent,
     RegisterLoginNavbarComponent,
+    ForgotPwdComponent,
     
   ],
   imports: [
