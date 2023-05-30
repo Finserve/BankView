@@ -36,10 +36,14 @@ export class AddAssetsComponent {
   textShow:any;
   textShow1:any;
 
+
+
   constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
                     private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
                     private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
-                    private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) { }
+                    private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {
+                    
+                     }
 
   addAssets = this.fb.group({
     assetType: ['', Validators.required],

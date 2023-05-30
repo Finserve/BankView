@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn } from '@angular/forms';
-
+// import * as data from 'E-Auctionpostman_collection.json'
+import { RegisterUser } from './register-user';
+import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,9 +11,11 @@ import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn } from '@a
 
 
 export class RegisterComponent {
-  name:any;
+
+  name: any;
   textShow: boolean;
   textShow1: boolean;
+
   passmatch:boolean;
  constructor(private fb: FormBuilder) { }
  registerForm = this.fb.group({
@@ -50,5 +54,5 @@ this.textShow1 = true;
  console.log('not valid')
  }
  }
-}
 
+  

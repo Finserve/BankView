@@ -2,13 +2,14 @@
 
 <div class="text-center bg-image">
     <div class="mask">
+
         <div class="register-card">
             <div class="">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Register</h5>
 
-                        <form [formGroup]="registerForm" (ngSubmit)="register((this.registerForm.value))">
+                        <form [formGroup]="registerForm" (ngSubmit)="register(this.registerForm.value)">
                             <div>
                                 <input id="Name" type="text" formControlName="Name" placeholder="Name" required/>
                                 <div *ngIf="registerForm.controls['Name'].hasError('required') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
@@ -66,12 +67,13 @@
                             <p class="login-txt text-danger" *ngIf="textShow1">
                                 Oops!.... Not Registered
                             </p>
+													     <p class="login-txt text-danger" *ngIf="textShow2">Something went wrong</p>
                         </form>
                     </div>
                 </div>
+       
             </div>
-        </div>
-    </div>
+        
 </div>
 
 <app-footer></app-footer>
