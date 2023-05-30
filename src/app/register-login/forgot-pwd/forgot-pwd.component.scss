@@ -1,0 +1,48 @@
+.bg-image{
+    background-image: url('^assets/bankie.png');
+    width: 100%;
+    background-size: contain;
+    height: auto;
+    padding: 20px 0px;
+    }
+
+.mask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+ 
+ }
+ .card{
+    width: 700px;
+    border-radius: 0;
+    border: 0;
+    height:auto;
+    position: relative;
+
+    .card-img-overlay{
+        top:150px;
+        
+        font-size: 22px;
+        font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+        font-weight: 500;
+        h2{
+            position: absolute;
+            right: 26px;
+        }
+    }
+ }
+
+
+ .card-img{
+    width:100%;
+    height: auto;
+ }
+
+ .card-title{
+    text-decoration-color: black;
+ }
+
+
+    
