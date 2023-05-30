@@ -15,10 +15,23 @@
           
               <div>    
                 <input id="Email" type="email" formControlName="Email" placeholder="E-mail Id" required />
+                <div *ngIf="loginForm.controls['Email'].hasError('required') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                  <p class="text-danger">Please enter Email </p>
+                 
+              </div>
+              <div *ngIf="loginForm.controls['Email'].hasError('pattern') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                  <p class="text-danger">Please enter Valid Email</p>
+              </div>
               </div>
           
               <div>      
                 <input id="pwd" type="password" formControlName="password" placeholder="Password" required />
+                <div *ngIf="loginForm.controls['password'].hasError('required') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                  <p class="text-danger">Please enter password </p>
+                  </div>
+              <div *ngIf="loginForm.controls['password'].hasError('minlength') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                  <p class="text-danger">Minimum length is 5 </p>
+              </div>
               </div>
           
               <div>

@@ -12,11 +12,12 @@ export class RegisterComponent {
   name:any;
   textShow: boolean;
   textShow1: boolean;
+  passmatch:boolean;
  constructor(private fb: FormBuilder) { }
  registerForm = this.fb.group({
-   Name:['', Validators.required],
+   Name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
    Email:['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
-   password:['', Validators.required],
+   password:['', Validators.compose([Validators.required,Validators.minLength(5)])],
    confirmpassword:['', Validators.required],
  },
  { 
@@ -28,6 +29,12 @@ export class RegisterComponent {
  password(registerForm: FormGroup) {
    this.value = registerForm.get('password')?.value;
    this.value1 = registerForm.get('confirmpassword')?.value;
+   if(this.value!== this.value1){
+    this.passmatch=true;
+   }
+   else{
+    this.passmatch=false;
+   }
    return this.value == this.value1 ? null : { passwordNotMatch: true };
  }
  register(){
