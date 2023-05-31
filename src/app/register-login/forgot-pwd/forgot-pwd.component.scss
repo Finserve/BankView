@@ -19,16 +19,12 @@
     border-radius: 0;
     border: 0;
     height:auto;
-    position: relative;
 
     .card-img-overlay{
-        top:150px;
         
         font-size: 22px;
         font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
-        font-weight: 500;
         h2{
-            position: absolute;
             right: 26px;
         }
     }
@@ -43,6 +39,123 @@
  .card-title{
     text-decoration-color: black;
  }
+ form{
+   
+   
+    top:40px;
+    right: 50px;
+    margin:20px;
 
-
+   
+        input{
+            font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+            border: 2px solid #FF7A7A;
+            border-radius: 10px;
+            font-size: 18px;
+            margin:10px;
+            padding: 10px;
+            width:300px; 
+            text-decoration-color: #5762CA80;;     
+        
+    }
+    p{
+       font-size: 18px; 
+    }
     
+        
+}
+
+.button{
+    background-color: #FF7A7A;
+    border: 2px solid #FF7A7A;
+    color:white;
+    border: none;
+    width:250px;
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    padding: 10px;
+    margin:10px;
+}
+
+.btn{
+    background-color: #FF6B6B;
+
+    opacity: 0.3;
+    color:white;
+    border:none;
+    width:250px;
+    font-size: 18px;
+    font-family:'Poppins',Helvetica,Arial,Lucida,sans-serif ;
+    padding: 10px;
+    margin:10px;
+}
+
+
+
+@media only screen and  (max-width: 600px) {
+    .first-column{
+        display: none !important;
+    }
+}
+@media only screen and  (min-width: 680px) {
+.card-img-overlay{
+    top:150px ;
+}
+form{
+    margin: 0px;
+}
+}
+
+@media only screen and (min-width:639px) and  (max-width: 679px) {
+    .card-img-overlay{
+        top:120px ;
+    }
+    form{
+        margin: 0px;
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width: 639px) {
+    .card-img-overlay{
+        top:120px  !important;
+    }
+    form{
+        margin: 0px !important;
+    }
+    .btn{
+        width: auto !important;
+        padding: 7px 14px !important;
+        margin:10px !important;
+    }
+.button{
+    width: auto !important;
+    padding: 7px 14px !important;
+    margin:0px !important;
+}
+}
+@media only screen and (max-width: 600px) {
+    .card{
+        img{
+        
+                display: none !important;
+            
+        }
+    }
+    .card-img-overlay{
+       
+      .row{
+      
+        right: 0;
+      }
+    }
+    .bg-image{ 
+        height: 500px !important;
+        }
+        .card-img-overlay{
+
+            position:  relative !important;
+            background: transparent  !important;
+        }
+        .card{
+            background: transparent !important;
+        }
+}
