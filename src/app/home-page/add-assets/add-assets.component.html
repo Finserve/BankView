@@ -164,7 +164,7 @@
                 <div class="row input">
                     <div class="col-4">  <label>Loan Lended</label></div>
                     <div class="col-8">
-                        <input formControlName="loanLended" type="number" id="hidearrows">
+                        <input formControlName="loanLended" type="number" id="hidearrows" placeholder="Enter only numeric values">
                         <div *ngIf="addAssets.get('loanLended')?.hasError('required') && (addAssets.get('loanLended')?.dirty ||addAssets.get('loanLended')?.touched)">
                             <p class="text-danger p-0 m-0">Please enter Amount </p>
                         </div>
@@ -176,8 +176,8 @@
                
                 <div class="row input">
                     <div class="col-4">  <label>Loan recovered</label></div>
-                    <div class="col-8"> <input formControlName="loanRecovered" type="number" id="hidearrows">
-
+                    <div class="col-8"> 
+                        <input formControlName="loanRecovered" type="number" id="hidearrows" placeholder="Enter only numeric values">
                         <div *ngIf="addAssets.get('loanRecovered')?.hasError('required') && (addAssets.get('loanRecovered')?.dirty ||addAssets.get('loanRecovered')?.touched)">
                             <p class="text-danger p-0 m-0">Please enter Amount </p>
                         </div>
@@ -190,7 +190,8 @@
                 
                 <div class="row input">
                     <div class="col-4"> <label>Final Pricing</label></div>
-                    <div class="col-8"><input formControlName="finalPrice" type="number" id="hidearrows">
+                    <div class="col-8">
+                        <input formControlName="finalPrice" type="number" id="hidearrows" placeholder="Enter only numeric values">
                         <div *ngIf="addAssets.get('finalPrice')?.hasError('required') && (addAssets.get('finalPrice')?.dirty ||addAssets.get('finalPrice')?.touched)">
                             <p class="text-danger p-0 m-0">Please enter Amount</p>
                            
