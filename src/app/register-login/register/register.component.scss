@@ -36,6 +36,10 @@
         padding: 10px;
         margin:10px;
     }
+    input:focus{
+        outline: none;
+      }
+      
     
     .signin{
         text-decoration: none;
