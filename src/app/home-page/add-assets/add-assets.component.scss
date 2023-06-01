@@ -13,7 +13,15 @@ select{
     font-size: 18px;
     font-weight: bold;
 }
-
+select:focus{
+  outline: none;
+}
+input:focus{
+    outline: none;
+  }
+  textarea:focus{
+    outline: none;
+  }
 .doc-upload{
     input{
         font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
