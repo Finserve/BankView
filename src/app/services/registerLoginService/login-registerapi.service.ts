@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
+
 import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -11,7 +12,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class LoginRegisterapiService {
  private baseurl="http://159.89.164.203:8081";
   // registerdata: any = (data as any).default;
-  constructor(private http:HttpClient) { }
+  isSellerLoggedIn = new BehaviorSubject<boolean>(false);
+
 
 addUser(registerusers:RegisterUser){
   //  registerUrl =`${this.url}/Register`;
@@ -37,3 +39,4 @@ private log(message: string) {
     // this.messageService.add(`HeroService: ${message}`);
   }
 }
+
