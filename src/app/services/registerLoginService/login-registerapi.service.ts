@@ -2,37 +2,41 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
-import { BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
+
+import { Observable,of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginRegisterapiService {
-//  private url="http://localhost:500/item";
+ private baseurl="http://159.89.164.203:8081";
   // registerdata: any = (data as any).default;
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http:HttpClient, private router:Router) { }
 
-  addUser(registerusers:RegisterUser){
-    //  registerUrl =`${this.url}/Register`;
-    //  return this.http.post<RegisterUser>("http://localhost:3000/item",registerusers);
-
-    // console.log("done");
-    return this.http.post<RegisterUser>("http://localhost:3000/seller",registerusers,{observe:'response'}).subscribe((result) => {
-      console.log("working");
-      if(result){
-        this.isSellerLoggedIn.next(true)
-        localStorage.setItem('register', JSON.stringify(result.body))
-        this.router.navigate(['home'])
-      }
-    });
-  }
-  // reloadpage(){
-  //   if(localStorage.getItem('register')){
-  //     this.isSellerLoggedIn.next(true)
-  //     // this.router.navigate(['home'])
-  //   }
-  // }
+addUser(registerusers:RegisterUser){
+  //  registerUrl =`${this.url}/Register`;
+return this.http.post<RegisterUser>(this.baseurl,registerusers);
 }
+
+private handleError<T>(operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // TODO: better job of transforming error for user consumption
+    this.log(`${operation} failed: ${error.message}`);
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
+
+private log(message: string) {
+  // console.log
+    // this.messageService.add(`HeroService: ${message}`);
+  }
+}
+
