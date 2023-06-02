@@ -1,0 +1,52 @@
+{
+  "seller": [
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": ""
+    },
+    {
+      "Name": "azzq",
+      "Email": "fvjh@yvhj.com",
+      "password": "12345",
+      "confirmpassword": "12345",
+      "id": "NsJihS5"
+    },
+    {
+      "Name": "vijay",
+      "Email": "vijay@gmail.com",
+      "password": "12345",
+      "confirmpassword": "12345",
+      "id": "tXJy7Bh"
+    },
+    {
+      "Name": "eswar",
+      "Email": "eswar@abc.com",
+      "password": "12345",
+      "confirmpassword": "12345",
+      "id": "pPw9eR0"
+    },
+    {
+      "Name": "sam",
+      "Email": "sam@sam.com",
+      "password": "samsam",
+      "confirmpassword": "samsam",
+      "id": "4ONvILI"
+    },
+    {
+      "Name": "sandy",
+      "Email": "san@san.com",
+      "password": "qazqaz",
+      "confirmpassword": "qazqaz",
+      "id": "2lVzzo0"
+    },
+    {
+      "Name": "rupesh",
+      "Email": "abc@gmail.com",
+      "password": "12345",
+      "confirmpassword": "12345",
+      "id": "l1J0gMG"
+    }
+  ]
+}
