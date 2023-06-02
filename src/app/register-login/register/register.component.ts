@@ -11,14 +11,15 @@ import { LoginRegisterapiService } from 'src/app/services/registerLoginService/l
 
 
 export class RegisterComponent {
-
   name: any;
   textShow: boolean;
   textShow1: boolean;
   textShow2:boolean;
 
   passmatch:boolean;
- constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService) { }
+ constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService) {
+  console.log(this.registerService)
+  }
  registerForm = this.fb.group({
    Name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
    Email:['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
@@ -30,6 +31,7 @@ export class RegisterComponent {
  })
  public value;
  public value1;
+
 
  password(registerForm: FormGroup) {
    this.value = registerForm.get('password')?.value;
