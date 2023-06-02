@@ -7,11 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AssetListComponent } from './asset-list/asset-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'add-assets',component:AddAssetsComponent},
-  { path: 'login',component:RegisterLoginComponent},
-  {path:'home',component:HomeComponent},
-  {path:'asset-List',component:AssetListComponent}
+  { path: '', component: HomePageComponent }  
 ];
 
 @NgModule({

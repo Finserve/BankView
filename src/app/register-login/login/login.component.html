@@ -1,54 +1,53 @@
-
 <app-register-login-navbar></app-register-login-navbar>
 
-<div class=" text-center bg-image " >
-    <div class="mask">
-      <div class="register-card ">
-        <div class="">
-          
-          <div class="card" >
-            <div class="card-body">
-              <h5 class="card-title">Login</h5>
-  
-              <form [formGroup]="loginForm" (ngSubmit)="login()">
-             
-          
-              <div>    
-                <input id="Email" type="email" formControlName="Email" placeholder="E-mail Id" required />
-                <div *ngIf="loginForm.controls['Email'].hasError('required') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
-                  <p class="text-danger mb-0">Please enter Email </p>
-                 
-              </div>
-              <div *ngIf="loginForm.controls['Email'].hasError('pattern') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
-                  <p class="text-danger mb-0">Please enter Valid Email</p>
-              </div>
-              </div>
-          
-              <div>      
-                <input id="pwd" type="password" formControlName="password" placeholder="Password" required />
-                <div *ngIf="loginForm.controls['password'].hasError('required') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-                  <p class="text-danger mb-0">Please enter password </p>
-                  </div>
-              <div *ngIf="loginForm.controls['password'].hasError('minlength') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-                  <p class="text-danger mb-0">Minimum length is 5 </p>
-              </div>
-              </div>
-          
+<div class="text-center bg-image">
+  <div class="mask">
+    <div class="register-card">
+      <div class="">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Login</h5>
+
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div>
-                <button class="button" type="submit"  >
-                  Login
-                </button>
-                <p class="fogot-pwd signin" routerLink="/forgotpassword">Forgot Password?</p>
-                <p>Don’t have an account?    <a class="signin" routerLink="/register" > Register</a></p>
-  
+                <input id="Email" type="email" formControlName="Email" placeholder="E-mail Id" required/>
+                <div *ngIf="loginForm.controls['Email'].hasError('required') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                  <p class="text-danger mb-0">Please enter Email</p>
+                </div>
+                <div *ngIf="loginForm.controls['Email'].hasError('pattern') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                  <p class="text-danger mb-0">Please enter Valid Email</p>
+                </div>
               </div>
-              <p class="login-txt text-danger" *ngIf="textShow1">Oops!.... Error Occured</p>
+
+              <div>
+                <input id="pwd" type="password" formControlName="password" placeholder="Password" required/>
+                <div *ngIf="loginForm.controls['password'].hasError('required') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                  <p class="text-danger mb-0">Please enter password</p>
+                </div>
+                <div *ngIf="loginForm.controls['password'].hasError('minlength') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                  <p class="text-danger mb-0">Minimum length is 5</p>
+                </div>
+              </div>
+
+              <div>
+                <button class="button" type="submit">Login</button>
+                <p class="fogot-pwd signin" routerLink="/forgotpassword">
+                  Forgot Password?
+                </p>
+                <p>
+                  Don't have an account?
+                  <a class="signin" routerLink="/register"> Register</a>
+                </p>
+              </div>
+              <p class="login-txt text-danger" *ngIf="textShow1">
+                Oops!.... Error Occured
+              </p>
             </form>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Hero -->
+</div>
+<!-- Hero -->
 <app-footer></app-footer>

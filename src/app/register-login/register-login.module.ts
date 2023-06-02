@@ -18,9 +18,9 @@ import { ForgotPwdComponent } from './forgot-pwd/forgot-pwd.component';
     LoginComponent,
     FooterComponent,
     RegisterLoginNavbarComponent,
-    ForgotPwdComponent,
-    
+    ForgotPwdComponent    
   ],
+  
   imports: [
     CommonModule,
     RegisterLoginRoutingModule,
