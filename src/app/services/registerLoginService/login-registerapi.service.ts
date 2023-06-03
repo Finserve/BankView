@@ -3,13 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
 
-import { Observable,of } from 'rxjs';
+import { BehaviorSubject, Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginRegisterapiService {
+  constructor(private http:HttpClient, private router:Router){}
+
+
  private baseurl="http://159.89.164.203:8081";
   // registerdata: any = (data as any).default;
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
