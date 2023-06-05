@@ -17,11 +17,10 @@ export class RegisterComponent {
   textShow1: boolean;
   textShow2: boolean;
   passmatch: boolean;
-  // passmatch:boolean;
 
   constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService) {
-   console.log(this.registerService)
-   }
+  //  console.log(this.registerService)
+  }
 
   registerForm = this.fb.group({
     Name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
@@ -51,21 +50,22 @@ export class RegisterComponent {
   register(registerusers: RegisterUser) {
     if (this.registerForm.valid) {
       console.log(registerusers);
-      this.registerService.addUser(registerusers).subscribe(
-        (res => {
-          this.textShow = true;
-          this.textShow1 = false;
-          // this.registerusers.push(res);
-          console.log("you did it");
-          this.registerForm.reset;
-        }),
-        error => {
-          console.log(error);
-          this.textShow2=true;
-          this.textShow = false;
-          this.textShow1 = false;
-        }
-      )
+      this.registerService.addUser(registerusers);
+      // .subscribe(
+      //   (res => {
+      //     this.textShow = true;
+      //     this.textShow1 = false;
+      //     // this.registerusers.push(res);
+      //     console.log("you did it");
+      //     this.registerForm.reset;
+      //   }),
+      //   error => {
+      //     console.log(error);
+      //     this.textShow2=true;
+      //     this.textShow = false;
+      //     this.textShow1 = false;
+      //   }
+      // )
       // console.log(this.registerForm.value.Name)
       for (let i = 0; i < this.registerForm.value.length; i++) {
         console.log(this.registerForm.value[i])
