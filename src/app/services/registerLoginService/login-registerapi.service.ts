@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as data from 'E-Auctionpostman_collection.json';
+// import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
 
 import { BehaviorSubject, Observable,of } from 'rxjs';
@@ -15,24 +15,26 @@ export class LoginRegisterapiService {
   constructor(private http:HttpClient, private router:Router){}
 
 
-  // private baseurl="http://159.89.164.203:8081";
+  
   // registerdata: any = (data as any).default;
 
-  private baseUrl = "http://localhost:3000/seller";
+  private baseUrl = "http://localhost:3000/Seller";
+  // private baseUrl="http://159.89.164.203:8081/api/register";
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
-
+  // registerUrl =`${this.baseUrl}/${this.baseUrl1}`;
   addUser(registerusers:RegisterUser){
-    // registerUrl =`${this.url}/Register`;
-    // return this.http.post<RegisterUser>(this.baseUrl,registerusers);
-    return this.http.post<RegisterUser>(this.baseUrl,registerusers,{observe:'response'}).subscribe((result) => {
-      console.log("working");
-      if(result){
-      this.isSellerLoggedIn.next(true)
-      localStorage.setItem('register', JSON.stringify(result.body))
-      this.router.navigate(['home'])
-      }
-    });
+ console.log("connection sucess")
+    return this.http.post<RegisterUser>(this.baseUrl,registerusers,{observe:'response'});
+    // return this.http.post<RegisterUser>(this.registerUrl,registerusers);
+    //   ,{observe:'response'}).subscribe((result) => {
+    //   console.log("working");
+    //   if(result){
+    //   this.isSellerLoggedIn.next(true)
+    //   localStorage.setItem('register', JSON.stringify(result.body))
+    //   this.router.navigate(['home'])
+    //   }
+    // });
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
