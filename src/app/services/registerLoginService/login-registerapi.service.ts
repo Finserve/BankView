@@ -15,7 +15,7 @@ export class LoginRegisterapiService {
   constructor(private http:HttpClient, private router:Router){}
 
 
-  //  private baseurl="http://159.89.164.203:8081";
+  // private baseurl="http://159.89.164.203:8081";
   // registerdata: any = (data as any).default;
 
   private baseUrl = "http://localhost:3000/seller";
@@ -23,7 +23,7 @@ export class LoginRegisterapiService {
 
 
   addUser(registerusers:RegisterUser){
-    //  registerUrl =`${this.url}/Register`;
+    // registerUrl =`${this.url}/Register`;
     // return this.http.post<RegisterUser>(this.baseUrl,registerusers);
     return this.http.post<RegisterUser>(this.baseUrl,registerusers,{observe:'response'}).subscribe((result) => {
       console.log("working");
