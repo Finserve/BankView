@@ -4,6 +4,7 @@ import { FormBuilder,Validators,FormGroup,FormControl,ValidatorFn } from '@angul
 import { RegisterUser } from './register-user';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -17,8 +18,9 @@ export class RegisterComponent {
   textShow1: boolean;
   textShow2: boolean;
   passmatch: boolean;
+  isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService) {
+  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {
   //  console.log(this.registerService)
   }
 
@@ -49,23 +51,27 @@ export class RegisterComponent {
   
   register(registerusers: RegisterUser) {
     if (this.registerForm.valid) {
-      console.log(registerusers);
-      this.registerService.addUser(registerusers);
-      // .subscribe(
-      //   (res => {
-      //     this.textShow = true;
-      //     this.textShow1 = false;
-      //     // this.registerusers.push(res);
-      //     console.log("you did it");
-      //     this.registerForm.reset;
-      //   }),
-      //   error => {
-      //     console.log(error);
-      //     this.textShow2=true;
-      //     this.textShow = false;
-      //     this.textShow1 = false;
-      //   }
-      // )
+      // console.log(registerusers);
+      this.registerForm.reset;
+      this.registerService.addUser(registerusers)
+      .subscribe
+        (res => {
+          this.textShow = true;
+          this.textShow1 = false;
+        
+          // this.registerusers.push(res);
+          console.log("you did it");
+         
+          // this.router.navigate['home']
+        }),
+        error => {
+          console.log("you didnot");
+          console.log(error);
+          this.textShow2=true;
+          this.textShow = false;
+          this.textShow1 = false;
+        }
+      
       // console.log(this.registerForm.value.Name)
       for (let i = 0; i < this.registerForm.value.length; i++) {
         console.log(this.registerForm.value[i])
