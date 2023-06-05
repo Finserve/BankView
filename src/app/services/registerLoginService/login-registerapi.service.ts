@@ -22,7 +22,7 @@ export class LoginRegisterapiService {
 
 addUser(registerusers:RegisterUser){
   //  registerUrl =`${this.url}/Register`;
-return this.http.post<RegisterUser>(this.baseurl,registerusers);
+  return this.http.post<RegisterUser>(this.baseurl,registerusers);
 }
 
 private handleError<T>(operation = 'operation', result?: T) {
