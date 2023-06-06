@@ -10,21 +10,21 @@
 
             <form [formGroup]="registerForm" (ngSubmit)="register(this.registerForm.value)">
               <div>
-                <input id="Name" type="text" formControlName="Name" placeholder="Name" required/>
-                <div *ngIf="registerForm.controls['Name'].hasError('required') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
+                <input id="name" type="text" formControlName="name" placeholder="Name" required/>
+                <div *ngIf="registerForm.controls['name'].hasError('required') && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)">
                   <p class="text-danger mb-0">Please enter Name</p>
                 </div>
-                <div *ngIf="registerForm.controls['Name'].hasError('pattern') && (registerForm.controls['Name'].dirty || registerForm.controls['Name'].touched)">
+                <div *ngIf="registerForm.controls['name'].hasError('pattern') && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)">
                   <p class="text-danger mb-0">Please enter Valid Name</p>
                 </div>
               </div>
 
               <div>
-                <input id="Email" type="email" formControlName="Email" placeholder="Email" required/>
-                <div *ngIf="registerForm.controls['Email'].hasError('required') && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">                 
+                <input id="email" type="email" formControlName="email" placeholder="Email" required/>
+                <div *ngIf="registerForm.controls['email'].hasError('required') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">                 
                   <p class="text-danger mb-0">Please enter Email</p>
                 </div>
-                <div *ngIf="registerForm.controls['Email'].hasError('pattern') && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
+                <div *ngIf="registerForm.controls['email'].hasError('pattern') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
                   <p class="text-danger mb-0">Please enter Valid Email</p>
                 </div>
               </div>

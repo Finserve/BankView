@@ -18,14 +18,15 @@ export class LoginRegisterapiService {
   
   // registerdata: any = (data as any).default;
 
-  private baseUrl = "http://localhost:3000/Seller";
-  // private baseUrl="http://159.89.164.203:8081/api/register";
+  // private baseUrl = "http://localhost:3000/Seller";
+  private baseUrl="http://159.89.164.203:8081/";
+  private registerURl="api/register";
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
-  // registerUrl =`${this.baseUrl}/${this.baseUrl1}`;
+  registerApi =`${this.baseUrl}${this.registerURl}`;
   addUser(registerusers:RegisterUser){
  console.log("connection sucess")
-    return this.http.post<RegisterUser>(this.baseUrl,registerusers,{observe:'response'});
+    return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
     // return this.http.post<RegisterUser>(this.registerUrl,registerusers);
     //   ,{observe:'response'}).subscribe((result) => {
     //   console.log("working");
