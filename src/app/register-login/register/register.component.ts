@@ -25,8 +25,8 @@ export class RegisterComponent {
   }
 
   registerForm = this.fb.group({
-    Name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
-    Email:['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
+    name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
+    email:['', Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
     password:['', Validators.compose([Validators.required,Validators.minLength(5)])],
     confirmpassword:['', Validators.required],
   },
@@ -60,12 +60,12 @@ export class RegisterComponent {
           this.textShow1 = false;
         
           // this.registerusers.push(res);
-          console.log("you did it");
+          console.log("sucessfully connected");
          
           // this.router.navigate['home']
         }),
         error => {
-          console.log("you didnot");
+          console.log("not connected");
           console.log(error);
           this.textShow2=true;
           this.textShow = false;
