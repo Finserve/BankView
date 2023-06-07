@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterLoginNavbarComponent } from './register-login-navbar/register-login-navbar.component';
 import { ForgotPwdComponent } from './forgot-pwd/forgot-pwd.component';
-import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [

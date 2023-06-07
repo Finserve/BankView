@@ -60,6 +60,9 @@ export class RegisterComponent {
       this.registerService.addUser(registerusers)
       .subscribe
         (res => {
+          this.snackBar.open("sucesfully registered", 'close',{
+            duration: 5000,
+          });
           console.log(res);          
           this.textShow = true;
           this.textShow1 = false;
@@ -67,17 +70,17 @@ export class RegisterComponent {
           this.router.navigate(['home'])
         },
         error => {
-
+          // this.snackBar.open("error.error.message.email", 'close',{
+          //   duration: 5000,
+          // });
+        
           console.log("not connected");         
           console.log(error.error.message.email);
-          this.errorMessage = error.error.message.email;         
+          // this.errorMessage = error.error.message.email;         
           this.textShow2=true;
           this.textShow = false;
           this.textShow1 = false;
         })
-      for (let i = 0; i < this.registerForm.value.length; i++) {
-        console.log(this.registerForm.value[i])
-      }
     }
     else {
       console.log('not valid')
@@ -85,7 +88,6 @@ export class RegisterComponent {
       this.textShow1 = true;
     }
   }
-
-  }
+}
 
 
