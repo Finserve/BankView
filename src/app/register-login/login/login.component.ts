@@ -9,17 +9,19 @@ import {
 import { Router } from '@angular/router';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Userlogin } from './userlogin';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent {
   name: any;
   textShow1: boolean;
-  constructor(private fb: FormBuilder, private router: Router,private loginService:LoginRegisterapiService) {
-    // console.log(loginService)
-  }
+
+  constructor(private fb: FormBuilder, private router: Router,private loginService:LoginRegisterapiService) {}
+
   loginForm = this.fb.group(
     {
       email: [
@@ -49,31 +51,18 @@ export class LoginComponent {
   login(Userlogin:Userlogin) {
     if (this.loginForm.valid) {
       this.textShow1 = false;
-      // this.router.navigate(['/home']);
       console.log(this.loginForm.value);
       this.loginService.verifyLogin(Userlogin)
       .subscribe(res=>{
-        // console.log("domee")
         console.log(res.body);
-        // for(let i =0; i<res.body?.length;i++){
-
-        // }
-        // let filename = (JSON.parse(res.body)).fileName;
-        // let messagebody = res.body;
-        // console.log(messagebody);
-        // for(let i =0;i<messagebody?.length;i++){
-
-        // }
-        // for(let i=0;i<message.length;i++){
-        //   console.log(JSON.stringify(message))
-        // }
-        this.router.navigate['home']
+        console.log("sucessfully Logged");
+        this.router.navigate(['home'])
+        console.log("sucessfully Logged1");
       },
       error=>{
         console.log(error.error.message.email)
       })
     } else {
-      // console.log(err)
       this.textShow1 = true;
       console.log('not valid');
     }

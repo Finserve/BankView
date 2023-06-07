@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder,Validators,FormGroup,FormControl,ValidatorFn } from '@angular/forms';
-// import * as data from 'E-Auctionpostman_collection.json'
 import { RegisterUser } from './register-user';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Router } from '@angular/router';
@@ -21,9 +20,7 @@ export class RegisterComponent {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   errorMessage;
 
-  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {
-  //  console.log(this.registerService)
-  }
+  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {}
 
   registerForm = this.fb.group({
     name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
@@ -52,38 +49,30 @@ export class RegisterComponent {
   
   register(registerusers: RegisterUser) {
     if (this.registerForm.valid) {
-      // console.log(registerusers);
       this.registerForm.reset;
       console.log(this.registerService)
       this.registerService.addUser(registerusers)
       .subscribe
         (res => {
-          console.log(res);
-          
+          console.log(res);          
           this.textShow = true;
           this.textShow1 = false;
-        
-          // this.registerusers.push(res);
           console.log("sucessfully connected");
-         
-          // this.router.navigate['home']
+          // this.isSellerLoggedIn.next(false)
+          // this.registerService.isSellerLoggedIn
+          this.router.navigate(['home'])
         },
         error => {
-          console.log("not connected");
-         
-            console.log(error.error.message.email);
-
-            this.errorMessage = error.error.message.email;
+          console.log("not connected");         
+          console.log(error.error.message.email);
+          this.errorMessage = error.error.message.email;
           this.textShow2=true;
           this.textShow = false;
           this.textShow1 = false;
         })
-      
-      // console.log(this.registerForm.value.Name)
       for (let i = 0; i < this.registerForm.value.length; i++) {
         console.log(this.registerForm.value[i])
       }
-      // this.sucessfulregister(this.registerForm.value);
     }
     else {
       console.log('not valid')

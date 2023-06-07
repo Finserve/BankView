@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
 import{Userlogin} from 'src/app/register-login/login/userlogin';
-
 import { BehaviorSubject, Observable,of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -13,37 +10,34 @@ import { Router } from '@angular/router';
 })
 
 export class LoginRegisterapiService {
+
   constructor(private http:HttpClient, private router:Router){}
-
-
-  
-  // registerdata: any = (data as any).default;
 
   // private baseUrl = "http://localhost:3000/Seller";
   private baseUrl="http://159.89.164.203:8081/";
   private registerUrl="api/register";
   private loginUrl = "api/login"
-  isSellerLoggedIn = new BehaviorSubject<boolean>(false);
+  private loggedIn = false;
+  // isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
   registerApi =`${this.baseUrl}${this.registerUrl}`;
   loginApi =`${this.baseUrl}${this.loginUrl}`;
+
   addUser(registerusers:RegisterUser){
-//  console.log("connection sucess")
+    // if(this.loggedIn = true){
+    // return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
+    // }
+    this.loggedIn = true;
     return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
-    // return this.http.post<RegisterUser>(this.registerUrl,registerusers);
-    //   ,{observe:'response'}).subscribe((result) => {
-    //   console.log("working");
-    //   if(result){
-    //   this.isSellerLoggedIn.next(true)
-    //   localStorage.setItem('register', JSON.stringify(result.body))
-    //   this.router.navigate(['home'])
-    //   }
-    // });
   }
 
   verifyLogin(Userlogin:Userlogin){
+    this.loggedIn = true;
     return this.http.post<Userlogin>(this.loginApi,Userlogin,{observe:'response'});
-    // return this.http.get<Userlogin>(this.loginApi);
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -60,9 +54,6 @@ export class LoginRegisterapiService {
     };
   }
 
-  private log(message: string) {
-    // console.log
-    // this.messageService.add(`HeroService: ${message}`);
-  }
-}
+  private log(message: string) {}
 
+}
