@@ -5,9 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class BikeserviceService {
 
-  Brands: string[] = [
-    '-Brand-','BAJAJ','HERO','HONDA','JAWA','KTM','MAHINDRA','PIAGGIO','ROYAL ENFIELD','SUZUKI','TVS','YAMAHA'
-  ]
+  Brands:any[]= [
+  //   {"select":"select brand"},
+  // {"brand":[ 
+  //       '-Brand-','BAJAJ','HERO','HONDA','JAWA','KTM','MAHINDRA','PIAGGIO','ROYAL ENFIELD','SUZUKI','TVS','YAMAHA'
+  //       ]}]
+  
+  
+    
+    'BAJAJ','HERO','HONDA','JAWA','KTM','MAHINDRA','PIAGGIO','ROYAL ENFIELD','SUZUKI','TVS','YAMAHA'
+    ]
+
 
   Models: string[] = [
     'Activa 125','ACTIVA 3G','Activa 4G','Activa 5G','Advanture 390','Bullet 350','Burgman','CB 200X','CB 300F','CB 300R','CB 350RS',

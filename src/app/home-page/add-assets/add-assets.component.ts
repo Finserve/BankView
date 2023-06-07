@@ -25,6 +25,7 @@ export class AddAssetsComponent {
   assetDetailthree: Array<any>;
   assetDetailfour: Array<any>;
   assetDetailfive: Array<any>;
+  first;
   imageSrcone;
   imageSrctwo;
   imageSrcthree;
@@ -35,6 +36,7 @@ export class AddAssetsComponent {
   imageSrceight;
   textShow:any;
   textShow1:any;
+  option: any;
 
 
 
@@ -42,7 +44,9 @@ export class AddAssetsComponent {
                     private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
                     private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
                     private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {
-                    
+                      // this.assetDetailone = this.bikeservice.Brands;
+                      // console.log(this.assetDetailone[1].brand[1])
+                      
                      }
 
   addAssets = this.fb.group({
@@ -118,6 +122,11 @@ changeAssettype(event: any) {
     //if user selected Bikes
     if (value == this.Assets[0]) {
      this.assetDetailone = this.bikeservice.Brands;
+    //  for(let i=0;i<this.assetDetailone[1].brand;i++){
+    //   // console.log(this.assetDetailone[1].brand[i])
+    // this.first = this.assetDetailone[1].brand[i];
+    // }
+    // this.option = this.first;
      this.assetDetailtwo = this.bikeservice.Models;
      this.assetDetailthree = this.bikeservice.Versions;
      this.assetDetailfour = this.bikeservice.YearOfMake;

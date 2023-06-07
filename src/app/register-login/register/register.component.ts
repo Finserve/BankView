@@ -19,6 +19,7 @@ export class RegisterComponent {
   textShow2: boolean;
   passmatch: boolean;
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
+  errorMessage;
 
   constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {
   //  console.log(this.registerService)
@@ -53,9 +54,12 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       // console.log(registerusers);
       this.registerForm.reset;
+      console.log(this.registerService)
       this.registerService.addUser(registerusers)
       .subscribe
         (res => {
+          console.log(res);
+          
           this.textShow = true;
           this.textShow1 = false;
         
@@ -63,14 +67,17 @@ export class RegisterComponent {
           console.log("sucessfully connected");
          
           // this.router.navigate['home']
-        }),
+        },
         error => {
           console.log("not connected");
-          console.log(error);
+         
+            console.log(error.error.message.email);
+
+            this.errorMessage = error.error.message.email;
           this.textShow2=true;
           this.textShow = false;
           this.textShow1 = false;
-        }
+        })
       
       // console.log(this.registerForm.value.Name)
       for (let i = 0; i < this.registerForm.value.length; i++) {

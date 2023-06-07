@@ -8,13 +8,13 @@
           <div class="card-body">
             <h5 class="card-title">Login</h5>
 
-            <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <form [formGroup]="loginForm" (ngSubmit)="login(this.loginForm.value)">
               <div>
-                <input id="Email" type="email" formControlName="Email" placeholder="E-mail Id" required/>
-                <div *ngIf="loginForm.controls['Email'].hasError('required') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                <input id="email" type="email" formControlName="email" placeholder="E-mail Id" required/>
+                <div *ngIf="loginForm.controls['email'].hasError('required') && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
                   <p class="text-danger mb-0">Please enter Email</p>
                 </div>
-                <div *ngIf="loginForm.controls['Email'].hasError('pattern') && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+                <div *ngIf="loginForm.controls['email'].hasError('pattern') && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
                   <p class="text-danger mb-0">Please enter Valid Email</p>
                 </div>
               </div>
@@ -31,9 +31,9 @@
 
               <div>
                 <button class="button" type="submit">Login</button>
-                <p class="fogot-pwd signin" routerLink="/forgotpassword">
+                <!-- <p class="fogot-pwd signin" routerLink="/forgotpassword">
                   Forgot Password?
-                </p>
+                </p> -->
                 <p>
                   Don't have an account?
                   <a class="signin" routerLink="/register"> Register</a>

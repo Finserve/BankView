@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import * as data from 'E-Auctionpostman_collection.json';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
+import{Userlogin} from 'src/app/register-login/login/userlogin';
 
 import { BehaviorSubject, Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -20,12 +21,14 @@ export class LoginRegisterapiService {
 
   // private baseUrl = "http://localhost:3000/Seller";
   private baseUrl="http://159.89.164.203:8081/";
-  private registerURl="api/register";
+  private registerUrl="api/register";
+  private loginUrl = "api/login"
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
-  registerApi =`${this.baseUrl}${this.registerURl}`;
+  registerApi =`${this.baseUrl}${this.registerUrl}`;
+  loginApi =`${this.baseUrl}${this.loginUrl}`;
   addUser(registerusers:RegisterUser){
- console.log("connection sucess")
+//  console.log("connection sucess")
     return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
     // return this.http.post<RegisterUser>(this.registerUrl,registerusers);
     //   ,{observe:'response'}).subscribe((result) => {
@@ -36,6 +39,11 @@ export class LoginRegisterapiService {
     //   this.router.navigate(['home'])
     //   }
     // });
+  }
+
+  verifyLogin(Userlogin:Userlogin){
+    return this.http.post<Userlogin>(this.loginApi,Userlogin,{observe:'response'});
+    // return this.http.get<Userlogin>(this.loginApi);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

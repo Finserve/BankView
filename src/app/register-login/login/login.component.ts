@@ -7,7 +7,8 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
+import { Userlogin } from './userlogin';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,10 +17,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   name: any;
   textShow1: boolean;
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router,private loginService:LoginRegisterapiService) {
+    // console.log(loginService)
+  }
   loginForm = this.fb.group(
     {
-      Email: [
+      email: [
         '',
         Validators.compose([
           Validators.required,
@@ -43,12 +46,34 @@ export class LoginComponent {
     this.value1 = loginForm.get('confirmpassword')?.value;
   }
 
-  login() {
+  login(Userlogin:Userlogin) {
     if (this.loginForm.valid) {
       this.textShow1 = false;
-      this.router.navigate(['/home']);
+      // this.router.navigate(['/home']);
       console.log(this.loginForm.value);
+      this.loginService.verifyLogin(Userlogin)
+      .subscribe(res=>{
+        // console.log("domee")
+        console.log(res.body);
+        // for(let i =0; i<res.body?.length;i++){
+
+        // }
+        // let filename = (JSON.parse(res.body)).fileName;
+        // let messagebody = res.body;
+        // console.log(messagebody);
+        // for(let i =0;i<messagebody?.length;i++){
+
+        // }
+        // for(let i=0;i<message.length;i++){
+        //   console.log(JSON.stringify(message))
+        // }
+        this.router.navigate['home']
+      },
+      error=>{
+        console.log(error.error.message.email)
+      })
     } else {
+      // console.log(err)
       this.textShow1 = true;
       console.log('not valid');
     }
