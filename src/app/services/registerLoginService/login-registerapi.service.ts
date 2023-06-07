@@ -18,15 +18,11 @@ export class LoginRegisterapiService {
   private registerUrl="api/register";
   private loginUrl = "api/login"
   private loggedIn = false;
-  // isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
   registerApi =`${this.baseUrl}${this.registerUrl}`;
   loginApi =`${this.baseUrl}${this.loginUrl}`;
 
   addUser(registerusers:RegisterUser){
-    // if(this.loggedIn = true){
-    // return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
-    // }
     this.loggedIn = true;
     return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
   }
