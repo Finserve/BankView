@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Userlogin } from './userlogin';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
   name: any;
   textShow1: boolean;
 
-  constructor(private fb: FormBuilder, private router: Router,private loginService:LoginRegisterapiService) {}
+  constructor(private fb: FormBuilder, private router: Router,private loginService:LoginRegisterapiService, private snackbar:MatSnackBar ) {}
 
   loginForm = this.fb.group(
     {
@@ -55,6 +56,9 @@ export class LoginComponent {
       this.loginService.verifyLogin(Userlogin)
       .subscribe(res=>{
         console.log(res.body);
+         this.snackbar.open("Sucessfully logged in", 'close',{
+            duration: 5000,
+          });
         console.log("sucessfully Logged");
         this.router.navigate(['home'])
         console.log("sucessfully Logged1");

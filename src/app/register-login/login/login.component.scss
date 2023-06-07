@@ -2,6 +2,8 @@
     background-image: url('^assets/bankie.png');
     width: 100%;
     background-size: contain;
+    position: relative;
+    z-index: 99;
 }
 
 .mask{
@@ -66,3 +68,39 @@ input:focus{
     }
 }
     
+::ng-deep .cdk-overlay-container{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    // z-index: 9;
+        //   position: absolute;
+        //   top:0;
+          text-align: center;
+          margin: 0 auto;
+          // background-color: #9408D6;
+     
+  }
+::ng-deep .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){ 
+    font-size: 16px !important;
+    color: #FF7A7A !important;
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif !important; 
+    text-decoration: underline !important;
+}
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface{
+    background-color: #FFFFFF !important;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__label{
+font-size: 16px !important;
+color: #000 !important;
+font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif !important; 
+}
+::ng-deep .mdc-snackbar .mat-mdc-snack-bar-container .mdc-snackbar--open .my-custom-snackbar {
+width: 100% !important;
+height: 100% !important;
+}
+::ng-deep mat-snack-bar-container{
+    width: 100% !important;
+}
