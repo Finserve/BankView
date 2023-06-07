@@ -4,6 +4,7 @@ import { RegisterUser } from './register-user';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,9 @@ export class RegisterComponent {
   passmatch: boolean;
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   errorMessage;
+  durationInSeconds = 5;
 
-  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {}
+  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router,private snackBar: MatSnackBar) {}
 
   registerForm = this.fb.group({
     name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
@@ -38,6 +40,7 @@ export class RegisterComponent {
   password(registerForm: FormGroup) {
     this.value = registerForm.get('password')?.value;
     this.value1 = registerForm.get('confirmpassword')?.value;
+
     if(this.value!== this.value1){
      this.passmatch=true;
     }
