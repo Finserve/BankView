@@ -1,6 +1,5 @@
 export interface RegisterUser {
-    Name?:String;
-    Email?:any;
+    name?:String;
+    email?:any;
     password?:any;
-    confirmpassword?:any;
 }
