@@ -58,8 +58,6 @@ export class RegisterComponent {
           this.textShow = true;
           this.textShow1 = false;
           console.log("sucessfully connected");
-          // this.isSellerLoggedIn.next(false)
-          // this.registerService.isSellerLoggedIn
           this.router.navigate(['home'])
         },
         error => {
