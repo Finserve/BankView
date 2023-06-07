@@ -22,7 +22,10 @@ export class RegisterComponent {
   errorMessage;
   durationInSeconds = 5;
 
+
+
   constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router,private snackBar: MatSnackBar) {}
+
 
   registerForm = this.fb.group({
     name:['', Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])],
@@ -64,9 +67,10 @@ export class RegisterComponent {
           this.router.navigate(['home'])
         },
         error => {
+
           console.log("not connected");         
           console.log(error.error.message.email);
-          this.errorMessage = error.error.message.email;
+          this.errorMessage = error.error.message.email;         
           this.textShow2=true;
           this.textShow = false;
           this.textShow1 = false;
@@ -81,4 +85,7 @@ export class RegisterComponent {
       this.textShow1 = true;
     }
   }
-}
+
+  }
+
+

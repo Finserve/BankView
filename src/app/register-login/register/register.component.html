@@ -1,5 +1,5 @@
-<app-register-login-navbar></app-register-login-navbar>
 
+<app-register-login-navbar></app-register-login-navbar>
 <div class="text-center bg-image">
   <div class="mask">
     <div class="register-card">
@@ -47,15 +47,16 @@
               </div>
 
               <div>
-                <button class="button" type="submit">Register</button>
+                <!-- (click)="showSnackbarDuration('Net is offline, Trying to reconnect in 5 seconds....','Done')" -->
+                <button class="button" type="submit" mat-raised-button color="primary" >Register</button>
                 <p>
                   Already have an account?
                   <a class="signin" routerLink="/login">Login</a>
                 </p>
               </div>
-              <p class="login-txt text-success" *ngIf="textShow">
+              <!-- <p class="login-txt text-success" *ngIf="textShow">
                 Sucessfully Registered
-              </p>
+              </p> -->
               <p class="login-txt text-danger" *ngIf="textShow1">
                 Oops!.... Not Registered
               </p>
@@ -70,4 +71,6 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
+
