@@ -5,6 +5,7 @@ import { RegisterUser } from './register-user';
 import { LoginRegisterapiService } from 'src/app/services/registerLoginService/login-registerapi.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -20,8 +21,10 @@ export class RegisterComponent {
   passmatch: boolean;
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   errorMessage;
+  durationInSeconds = 5;
 
-  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router) {
+
+  constructor(private fb: FormBuilder, private registerService:LoginRegisterapiService,private router:Router,private snackBar: MatSnackBar) {
   //  console.log(this.registerService)
   }
 
@@ -63,6 +66,11 @@ export class RegisterComponent {
           this.textShow = true;
           this.textShow1 = false;
         
+        this.snackBar.open('sucessfully logged in', 'action',{
+            duration: 4000,
+            panelClass: 'my-custom-snackbar'
+          });
+
           // this.registerusers.push(res);
           console.log("sucessfully connected");
          
@@ -70,6 +78,13 @@ export class RegisterComponent {
         },
         error => {
           console.log("not connected");
+          
+            this.snackBar.open(error.error.message.email, 'action',{
+              // duration: 2000,
+              verticalPosition: 'top',
+              horizontalPosition:'right',
+            });
+          
          
             console.log(error.error.message.email);
 
@@ -91,4 +106,9 @@ export class RegisterComponent {
       this.textShow1 = true;
     }
   }
+
+  // showSnackbar(content) {
+  //   this.snackBar.open(content);
+  // }
+
 }
