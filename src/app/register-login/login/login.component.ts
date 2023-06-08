@@ -54,14 +54,18 @@ export class LoginComponent {
       this.textShow1 = false;
       console.log(this.loginForm.value);
       this.loginService.verifyLogin(Userlogin)
-      .subscribe(res=>{
-        console.log(res.body);
+      .subscribe((res:any)=>{
+        localStorage.clear;
+        // console.log(res.body);
+        // console.log(res.body.data[0].token.access);
+
          this.snackbar.open("Sucessfully logged in", 'close',{
             duration: 5000,
           });
-        console.log("sucessfully Logged");
+        // console.log("sucessfully Logged");
         this.router.navigate(['home'])
-        console.log("sucessfully Logged1");
+        // console.log("sucessfully Logged");
+    localStorage.setItem("token",res.body.data[0].token.access);
       },
       error=>{
         console.log(error.error.message.email)
