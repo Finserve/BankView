@@ -23,7 +23,7 @@ export class LoginRegisterapiService {
   loginApi =`${this.baseUrl}${this.loginUrl}`;
 
   addUser(registerusers:RegisterUser){
-    this.loggedIn = true;
+    // this.loggedIn = true;
     return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
   }
 

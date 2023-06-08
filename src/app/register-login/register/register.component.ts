@@ -60,14 +60,17 @@ export class RegisterComponent {
       this.registerService.addUser(registerusers)
       .subscribe
         (res => {
-          this.snackBar.open("sucesfully registered", 'close',{
+          console.log(res);
+          this.snackBar.open("sucesfully registered please login", 'close',{
             duration: 5000,
           });
-          console.log(res);          
+          console.log(res);    
+          localStorage.clear();      
           this.textShow = true;
           this.textShow1 = false;
           console.log("sucessfully connected");
-          this.router.navigate(['home'])
+          // this.router.navigate(['home'])
+          // localStorage.setItem("token");
         },
         error => {
           // this.snackBar.open("error.error.message.email", 'close',{
