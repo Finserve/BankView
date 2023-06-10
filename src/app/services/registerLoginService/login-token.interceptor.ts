@@ -40,7 +40,7 @@ export class LoginTokenInterceptor implements HttpInterceptor {
       }),
       catchError(errordata=>{
         localStorage.clear();
-
+        return errordata;
       })
     );
   }
