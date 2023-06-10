@@ -54,10 +54,11 @@ export class RegisterComponent {
   }
   
   register(registerusers: RegisterUser) {
+    localStorage.clear;
     if (this.registerForm.valid) {
       this.registerForm.reset;
       console.log(this.registerService)
-      this.registerService.addUser(registerusers)
+      this.registerService.register(registerusers)
       .subscribe
         (res => {
           console.log(res);
