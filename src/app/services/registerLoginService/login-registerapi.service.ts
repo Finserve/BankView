@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisterUser } from 'src/app/register-login/register/register-user';
 import{Userlogin} from 'src/app/register-login/login/userlogin';
-import { BehaviorSubject, Observable,of } from 'rxjs';
+import { BehaviorSubject, Observable,catchError,of } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -16,26 +16,47 @@ export class LoginRegisterapiService {
   // private baseUrl = "http://localhost:3000/Seller";
   private baseUrl="http://159.89.164.203:8081/";
   private registerUrl="api/register";
-  private loginUrl = "api/login"
-  private loggedIn = false;
+  private loginUrl = "api/login";
+  private refreshTokenurl ="api/refresh-token";
 
   registerApi =`${this.baseUrl}${this.registerUrl}`;
   loginApi =`${this.baseUrl}${this.loginUrl}`;
-
-  addUser(registerusers:RegisterUser){
-    // this.loggedIn = true;
+  refrehTokenApi = `${this.baseUrl}${this.refreshTokenurl}`
+  register(registerusers:RegisterUser){
     return this.http.post<RegisterUser>(this.registerApi,registerusers,{observe:'response'});
   }
 
-  verifyLogin(Userlogin:Userlogin){
-    this.loggedIn = true;
+  login(Userlogin:Userlogin){
     return this.http.post<Userlogin>(this.loginApi,Userlogin,{observe:'response'});
   }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn;
+  refreshToken(){
+    let tokens = {
+      "access":this.getToken(),
+      "refresh":this.getrefreshToken()
+    }
+    return this.http.post<any>(this.refrehTokenApi,tokens,{observe:'response'}).pipe(
+      catchError(error => {
+          return error;
+      })
+    );
   }
 
+  getToken(){
+    return localStorage.getItem("token");
+  }
+  getrefreshToken(){
+    return localStorage.getItem("refresh-token");
+  }
+
+  saveToken(tokenData:any){
+    return localStorage.getItem("token");
+    return localStorage.getItem("refresh-token");
+  }
+  logout(){
+    localStorage.clear();
+    
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -50,14 +50,15 @@ export class LoginComponent {
   }
 
   login(Userlogin:Userlogin) {
+   
     if (this.loginForm.valid) {
       this.textShow1 = false;
       console.log(this.loginForm.value);
-      this.loginService.verifyLogin(Userlogin)
+      this.loginService.login(Userlogin)
       .subscribe((res:any)=>{
         localStorage.clear;
         // console.log(res.body);
-        // console.log(res.body.data[0].token.access);
+        // console.log(res.body.data[0].token.refresh);
 
          this.snackbar.open("Sucessfully logged in", 'close',{
             duration: 5000,
@@ -65,12 +66,17 @@ export class LoginComponent {
         // console.log("sucessfully Logged");
         this.router.navigate(['home'])
         // console.log("sucessfully Logged");
-    localStorage.setItem("token",res.body.data[0].token.access);
+    let token = localStorage.setItem("token",res.body.data[0].token.access);
+// console.log(token.split('.')[1])
+    localStorage.setItem("refresh-token",res.body.data[0].token.refresh)
+  
       },
       error=>{
+        localStorage.clear;
         console.log(error.error.message.email)
       })
     } else {
+      localStorage.clear;
       this.textShow1 = true;
       console.log('not valid');
     }

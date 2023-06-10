@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomepageNavbarComponent {
   constructor(private logoutservice:LoginRegisterapiService, private router:Router){}
   logout(){
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
         // console.log("res");    
         localStorage.clear();
   }

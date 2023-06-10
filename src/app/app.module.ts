@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterLoginModule } from './register-login/register-login.module';
 import { HomePageModule } from './home-page/home-page.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginTokenInterceptor } from './services/registerLoginService/login-token.interceptor';
 
 
 @NgModule({
@@ -20,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass:LoginTokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
