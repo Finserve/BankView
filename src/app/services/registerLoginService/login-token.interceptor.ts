@@ -7,12 +7,12 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { LoginRegisterapiService } from './login-registerapi.service';
-
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginTokenInterceptor implements HttpInterceptor {
 
-  constructor(private injector:Injector) {}
+  constructor(private injector:Injector, private router:Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let apiService = this.injector.get(LoginRegisterapiService);
@@ -40,6 +40,7 @@ export class LoginTokenInterceptor implements HttpInterceptor {
       }),
       catchError(errordata=>{
         localStorage.clear();
+        this.router.navigate(['register'])
         return errordata;
       })
     );

@@ -32,7 +32,7 @@ export class LoginRegisterapiService {
 
   refreshToken(){
     let tokens = {
-      "access":this.getToken(),
+      // "access":this.getToken(),
       "refresh":this.getrefreshToken()
     }
     return this.http.post<any>(this.refrehTokenApi,tokens,{observe:'response'}).pipe(
@@ -50,7 +50,7 @@ export class LoginRegisterapiService {
   }
 
   saveToken(tokenData:any){
-    return localStorage.getItem("token");
+    // return localStorage.getItem("token");
     return localStorage.getItem("refresh-token");
   }
   logout(){
