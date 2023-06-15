@@ -8,6 +8,7 @@ import { AddAssetsComponent } from './home-page/add-assets/add-assets.component'
 import { AssetListComponent } from './home-page/asset-list/asset-list.component';
 import { RegisterLoginComponent } from './register-login/register-login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AssetsauthGuard } from './guards/assetsauth.guard';
 
 const routes: Routes = [
   { 
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent },
   {path:'forgotpassword', component:ForgotPwdComponent},
   {path:'home',component:HomeComponent, canActivate:[AuthGuard] },  
-  {path:'add-assets',component:AddAssetsComponent,canActivate:[AuthGuard] },  
+  {path:'add-assets',component:AddAssetsComponent,canActivate:[AssetsauthGuard] },  
   {path:'asset-List',component:AssetListComponent,canActivate:[AuthGuard]}
 ];
 

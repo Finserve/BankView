@@ -45,6 +45,7 @@ export class LoginRegisterapiService {
   getToken(){
     return localStorage.getItem("token");
   }
+
   getrefreshToken(){
     return localStorage.getItem("refresh-token");
   }
@@ -53,9 +54,23 @@ export class LoginRegisterapiService {
     // return localStorage.getItem("token");
     return localStorage.getItem("refresh-token");
   }
+
   logout(){
-    localStorage.clear();
-    
+    localStorage.clear();    
+  }
+
+  haveAccess(){
+    var loginToken = localStorage.getItem('token') || '';
+    var extractedToken = loginToken.split('.')[1];
+    var atobdata = atob(extractedToken);
+    var finaldata = JSON.parse(atobdata);
+    console.log(finaldata);
+    if(finaldata.user_id === 5){
+      return true;
+    }else{
+      alert('Access restricted');
+      return false;
+    }
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
