@@ -11,12 +11,12 @@ import { IndustrialWithshedService } from 'src/app/services/dropdown services/in
 import { LandserviceService } from 'src/app/services/dropdown services/landservice.service';
 import { SiteserviceService } from 'src/app/services/dropdown services/siteservice.service';
 
-
 @Component({
   selector: 'app-add-assets',
   templateUrl: './add-assets.component.html',
   styleUrls: ['./add-assets.component.scss']
 })
+
 export class AddAssetsComponent {
   selectedassets: any;
   formSubmitted = false;
@@ -37,33 +37,39 @@ export class AddAssetsComponent {
   textShow:any;
   textShow1:any;
   option: any;
+  assetDocuments: any;
+  files: any;
 
 
 
   constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
-                    private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
-                    private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
-                    private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {
-                      // this.assetDetailone = this.bikeservice.Brands;
-                      // console.log(this.assetDetailone[1].brand[1])
-                      
-                     }
+              private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
+              private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
+              private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {}
 
+
+              
   addAssets = this.fb.group({
     assetType: ['', Validators.required],
     assetsDetails: this.fb.group({
-    assetDetailone: ['', Validators.required],
-    assetDetailtwo:['', Validators.required],
-    assetDetailthree:['', Validators.required],
-    assetDetailfour:['', Validators.required],
-    assetDetailfive:['', Validators.required]
-    }),
-    assetDocuments: this.fb.group({
-      documentOne:[''],
-      documentTwo:[''],
-      documentThree:[''],
-      documentFour:[''],
-    }),
+      assetDetailone: ['', Validators.required],
+      assetDetailtwo:['', Validators.required],
+      assetDetailthree:['', Validators.required],
+      assetDetailfour:['', Validators.required],
+      assetDetailfive:['', Validators.required]
+      }),
+    assetDocuments: this.fb.array([
+      this.fb.control('')
+    ]),
+      // this.
+      // documentOne:[''],
+      // documentTwo:[''],
+      // documentThree:[''],
+      // documentFour:[''],
+    // }),
+    // aliases: this.fb.array([
+    //   this.fb.control('')
+    // ])
     assetImages:this.fb.group({
       imageOne:[''],
       imageTwo:[''],
@@ -74,7 +80,7 @@ export class AddAssetsComponent {
       imageSeven:[''],
       imageEight:[''],
     }),
-    assetDiscrition:this.fb.group({
+    assetDescription:this.fb.group({
       description:['', Validators.required],
       loanLended:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
       loanRecovered:[null, Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
@@ -82,14 +88,26 @@ export class AddAssetsComponent {
     })
   });
 
+  get assetDocs(){
+    return this.addAssets.get('assetDocuments') as FormArray;
+  }
+
+  addAssetDocs(){
+    this.assetDocs.push(this.fb.control(''));
+  }
+
+  removeAssetDocs(index : number){
+    this.assetDocs.removeAt(index);
+  }
+
   onSubmit() {
    
     if (this.addAssets.valid){
       console.log(this.addAssets.value);
       this.addAssets.reset();
-    this.textShow = true;
-    this.textShow1=false;
-    this.formSubmitted = false;
+      this.textShow = true;
+      this.textShow1=false;
+      this.formSubmitted = false;
       return;
     }
     this.formSubmitted = true;
@@ -97,6 +115,7 @@ export class AddAssetsComponent {
     this.textShow1=true;
     // console.log(this.addAssets.value);
   }
+
 
 
   Assets: Array<any> = [
@@ -117,16 +136,10 @@ export class AddAssetsComponent {
 
 changeAssettype(event: any) {
     const value = event.target.value;
-    // console.log(value);
 
     //if user selected Bikes
     if (value == this.Assets[0]) {
      this.assetDetailone = this.bikeservice.Brands;
-    //  for(let i=0;i<this.assetDetailone[1].brand;i++){
-    //   // console.log(this.assetDetailone[1].brand[i])
-    // this.first = this.assetDetailone[1].brand[i];
-    // }
-    // this.option = this.first;
      this.assetDetailtwo = this.bikeservice.Models;
      this.assetDetailthree = this.bikeservice.Versions;
      this.assetDetailfour = this.bikeservice.YearOfMake;
@@ -158,11 +171,11 @@ changeAssettype(event: any) {
     }
     //if user selected Houses
     if (value == this.Assets[4]) {
-     this.assetDetailone = this.flatservice.BHK;
-     this.assetDetailtwo = this.flatservice.Facing;
-     this.assetDetailthree = this.flatservice.propertystatus;
-     this.assetDetailfour = this.flatservice.FlatType;
-     this.assetDetailfive = this.flatservice.Age
+     this.assetDetailone = this.houseservice.BHK;
+     this.assetDetailtwo = this.houseservice.Facing;
+     this.assetDetailthree = this.houseservice.propertystatus;
+     this.assetDetailfour = this.houseservice.FlatType;
+     this.assetDetailfive = this.houseservice.Age
     }
     //if user selected Lands
     if (value == this.Assets[5]) {
@@ -198,7 +211,6 @@ changeAssettype(event: any) {
     }
 }
 
-
 readURLone(event): void {
     if (event.target.files && event.target.files[0]) {
         const file = event.target.files[0];
@@ -207,6 +219,7 @@ readURLone(event): void {
         reader.readAsDataURL(file);
     }
 }
+
 readURLtwo(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -215,6 +228,7 @@ readURLtwo(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLthree(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -223,6 +237,7 @@ readURLthree(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLfour(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -231,6 +246,7 @@ readURLfour(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLfive(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -239,6 +255,7 @@ readURLfive(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLsix(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -247,6 +264,7 @@ readURLsix(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLseven(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -255,6 +273,7 @@ readURLseven(event): void {
       reader.readAsDataURL(file);
   }
 }
+
 readURLeight(event): void {
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
