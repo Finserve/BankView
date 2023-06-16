@@ -68,24 +68,14 @@
         </div>
     </div>
 
-
     <hr>
-
 
     <div class="container-fluid first-dropdowwn" formGroupName="assetDocuments">
         <p>Upload Documents :</p>
-        <div class="row doc-upload">
-            <div class="col-md-4 col-lg-3">
+        <button class="addbtn" type="button" (click)="addAssetDocs()">Add more files</button><div class="row doc-upload" >
+            <div class="col-md-4 col-lg-3 d-flex" *ngFor="let assetdoc of assetDocs.controls; let i=index">
                 <input type="file" id="customFile" accept="application/pdf" formControlName="documentOne" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentTwo" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentThree" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentFour" accept=".pdf,.docx"/>
+                <button type="button" class="deletebtn" (click)="removeAssetDocs(i)"><img src="assets/delete.png" alt="delete-inputField"></button>
             </div>
         </div>
     </div>

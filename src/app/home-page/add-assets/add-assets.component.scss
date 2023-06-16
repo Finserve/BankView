@@ -26,7 +26,25 @@ input:focus{
     input{
         font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
         font-size: 12px;
+        padding: 5px 0;
+        width: 200px;
     }
+}
+
+.addbtn, .removebtn{
+    width: max-content;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.deletebtn{
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
 }
 
 .select-assetType{
