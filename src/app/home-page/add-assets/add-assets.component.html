@@ -1,5 +1,6 @@
 <app-homepage-navbar></app-homepage-navbar>
 <form [formGroup]="addAssets" (ngSubmit)="onSubmit()">
+    <!-- Asset type -->
     <div class="container-fluid first-dropdowwn d-flex">
         <p>Asset Type :</p>
         <select class="select-assetType" (change)="changeAssettype($event)" formControlName="assetType">
@@ -13,7 +14,7 @@
     </div>
 
     <hr>
-
+    <!-- Asset dropdowns -->
     <div class="container-fluid first-dropdowwn" formGroupName="assetsDetails" >
         <p>Select Assets Details :</p>
         <div class="row asset-detail">
@@ -68,35 +69,34 @@
         </div>
     </div>
 
-
     <hr>
-
-
+    <!-- Asset Documents -->
     <div class="container-fluid first-dropdowwn" formGroupName="assetDocuments">
         <p>Upload Documents :</p>
-        <div class="row doc-upload">
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentOne" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentTwo" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentThree" accept=".pdf,.docx"/>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <input type="file" id="customFile" accept="application/pdf" formControlName="documentFour" accept=".pdf,.docx"/>
+        <button class="addDoc-Btn" type="button" (click)="addAssetDocs()">Add more files</button>
+        <div class="row doc-upload" >
+            <div class="col-md-4 col-lg-3 d-flex" *ngFor="let assetdoc of assetDocs.controls; let i=index">
+                <input type="file" id="customFile" (change)="onFileSelected($event)" accept="application/pdf" formControlName="documentOne" accept=".pdf,.docx"/>
+                <button type="button" class="deleteDoc-Btn" (click)="removeAssetDocs(i)"><img src="assets/delete.png" alt="delete-inputField"></button>
             </div>
         </div>
     </div>
 
     <hr>
-
+    <!-- Asset Images -->
     <div class="container-fluid first-dropdowwn " formGroupName="assetImages">
         <p>Upload Documents :</p>
-
-        <div class="row">
-            <div class="col-md-4 col-lg-3">
+        <button class="addImg-Btn" type="button" (click)="addAssetImages()">Add more Images</button>
+        <div class="row" >            
+            <div class="col-md-4 col-lg-3" *ngFor="let assetimg of assetimgs.controls; let i =index">
+                <div class="img-container">
+                    <button type="button" class="deleteImg-Btn" (click)="removeAssetImgs(i)"><img src="/assets/Closebutton.png" alt="delete-inputImgField"></button>
+                    <img class="previewScreen" [src]="imageSrcone || 'assets/imageview.png'" alt="your image" />
+                    <!-- <div *ngIf="imageSrcone[1]"><img class="previewScreen" [src]="imageSrcone[1] || 'assets/imageview.png'" alt="your image" /></div> -->
+                    <input type='file' (change)="readURLone($event);" class="ps-1" formControlName="imageOne" accept="image/*"/>
+                </div>
+            </div>
+            <!-- <div class="col-md-4 col-lg-3">
                 <div class="img-container">
                     <img [src]="imageSrcone || 'assets/imageview.png'" alt="your image" />
                     <input type='file' (change)="readURLone($event);" class="ps-1" formControlName="imageOne" accept="image/*" />
@@ -113,11 +113,11 @@
                     <img [src]="imageSrcthree || 'assets/imageview.png'" alt="your image" />
                     <input type='file' (change)="readURLthree($event);" class="ps-1" formControlName="imageThree" accept="image/*"/>
                 </div>
-            </div>
+            </div> 
             <div class="col-md-4 col-lg-3">
                 <div class="img-container">
-                    <img [src]="imageSrcfour || 'assets/imageview.png'" alt="your image" />
-                    <input type='file' (change)="readURLfour($event);" class="ps-1" formControlName="imageFour" accept="image/*"/>
+                    <img [src]="imageSrcFour || 'assets/imageview.png'" alt="your image" />
+                    <input type='file' (change)="readURLFour($event);" class="ps-1" formControlName="imageFour" accept="image/*" />
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
@@ -143,14 +143,13 @@
                     <img [src]="imageSrceight || 'assets/imageview.png'" alt="your image" />
                     <input type='file' (change)="readURLeight($event);" class="ps-1" formControlName="imageEight" accept="image/*"/>
                 </div>
-            </div>
+            </div>  -->
         </div>
     </div>
 
-
     <hr>
-
-    <div class="container-fluid first-dropdowwn" formGroupName="assetDiscrition">
+    <!-- Asset details -->
+    <div class="container-fluid first-dropdowwn" formGroupName="assetDescription">
         <p>Description & Pricing :</p>
 
         <div class="row input-fields">
@@ -205,11 +204,14 @@
             </div>
         </div>
     </div>
-<div class="text-center">
-    <button class="submit-btn" type="submit">Submit</button>
-    <p class="login-txt text-success" *ngIf="textShow">Sucessfully Submitted</p>
-    <p class="login-txt text-danger" *ngIf="textShow1">Please enter all the values</p>
-</div>
+
+    <!-- submitbtn -->
+    <div class="text-center">
+        <button class="submit-btn" type="submit">Submit</button>
+        <p class="login-txt text-success" *ngIf="textShow">Sucessfully Submitted</p>
+        <p class="login-txt text-danger" *ngIf="textShow1">Please enter all the values</p>
+    </div>
+    
 </form>
 
 <app-footer></app-footer>
