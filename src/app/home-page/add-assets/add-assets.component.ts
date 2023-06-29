@@ -58,23 +58,29 @@ export class AddAssetsComponent {
     assetDetailfour:['', Validators.required],
     assetDetailfive:['', Validators.required]
     }),
-    assetDocuments: this.fb.group({
-      documentOne:[''],
-      documentTwo:[''],
-      documentThree:[''],
-      documentFour:[''],
-    }),
-    assetImages:this.fb.group({
-      imageOne:[''],
-      imageTwo:[''],
-      imageThree:[''],
-      imageFour:[''],
-      imageFive:[''],
-      imageSix:[''],
-      imageSeven:[''],
-      imageEight:[''],
-    }),
-    assetDiscrition:this.fb.group({
+    assetDocuments: this.fb.array([
+      this.fb.control('')
+    ]),
+    // assetDocuments: this.fb.group({
+    //   documentOne:[''],
+    //   documentTwo:[''],
+    //   documentThree:[''],
+    //   documentFour:[''],
+    // }),
+    assetImages: this.fb.array([
+      this.fb.control('')
+    ]),
+    // assetImages:this.fb.group({
+    //   imageOne:[''],
+    //   imageTwo:[''],
+    //   imageThree:[''],
+    //   imageFour:[''],
+    //   imageFive:[''],
+    //   imageSix:[''],
+    //   imageSeven:[''],
+    //   imageEight:[''],
+    // }),
+    assetDescription:this.fb.group({
       description:['', Validators.required],
       loanLended:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
       loanRecovered:[null, Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
@@ -82,14 +88,38 @@ export class AddAssetsComponent {
     })
   });
 
+  get assetDocs(){
+    return this.addAssets.get('assetDocuments') as FormArray;
+  }
+
+  get assetimgs(){
+    return this.addAssets.get('assetImages') as FormArray;
+  }
+
+  addAssetDocs(){
+    this.assetDocs.push(this.fb.control(''));
+  }
+
+  addAssetImages(){
+    this.assetimgs.push(this.fb.control(''));
+  }
+
+  removeAssetDocs(index : number){
+    this.assetDocs.removeAt(index);
+  }
+
+  removeAssetImgs(index : number){
+    this.assetimgs.removeAt(index);
+  }
+
   onSubmit() {
    
     if (this.addAssets.valid){
       console.log(this.addAssets.value);
       this.addAssets.reset();
-    this.textShow = true;
-    this.textShow1=false;
-    this.formSubmitted = false;
+      this.textShow = true;
+      this.textShow1=false;
+      this.formSubmitted = false;
       return;
     }
     this.formSubmitted = true;
@@ -193,69 +223,103 @@ changeAssettype(event: any) {
     }
 }
 
+// doc upload
+onFileSelected(event: any): void {
+  const file: File = event.target.files[0];
+  const fileSizeInBytes = file.size;
+  const maxSizeInBytes = 25 * 1024 * 1024; // 1MB
 
-readURLone(event): void {
-    if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = e => this.imageSrcone = reader.result;
-        reader.readAsDataURL(file);
-    }
+  if (fileSizeInBytes > maxSizeInBytes) {
+    alert('File size exceeds the limit. Please choose a smaller file.');
+    // Optionally, you can clear the file input
+    event.target.value = null;
+  } 
 }
-readURLtwo(event): void {
+
+// Img upload
+readURLone(event:any): void {
+  const file: File = event.target.files[0];
+  const fileSizeInBytes = file.size;
+  const maxSizeInBytes = 1024 * 1024; // 1MB
+
+  if (fileSizeInBytes > maxSizeInBytes) {
+    alert('File size exceeds the limit. Please choose a smaller file.');
+    // Optionally, you can clear the file input
+    event.target.value = null;
+  } 
+  
   if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
       const reader = new FileReader();
-      reader.onload = e => this.imageSrctwo = reader.result;
+      reader.onload = e => this.imageSrcone = reader.result;
       reader.readAsDataURL(file);
   }
 }
-readURLthree(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcthree = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-readURLfour(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcfour = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-readURLfive(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcfive = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-readURLsix(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcsix = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-readURLseven(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcseven = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-readURLeight(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrceight = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
+
+
+// readURLone(event): void {
+//     if (event.target.files && event.target.files[0]) {
+//         const file = event.target.files[0];
+//         const reader = new FileReader();
+//         reader.onload = e => this.imageSrcone = reader.result;
+//         reader.readAsDataURL(file);
+//     }
+// }
+// readURLtwo(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrctwo = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLthree(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrcthree = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLfour(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrcfour = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLfive(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrcfive = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLsix(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrcsix = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLseven(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrcseven = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+// readURLeight(event): void {
+//   if (event.target.files && event.target.files[0]) {
+//       const file = event.target.files[0];
+//       const reader = new FileReader();
+//       reader.onload = e => this.imageSrceight = reader.result;
+//       reader.readAsDataURL(file);
+//   }
+// }
+
 }
