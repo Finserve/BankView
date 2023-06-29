@@ -1,5 +1,5 @@
 p,label,input,input[placeholder]{
-    font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     // font-size: 16px;
     color: #000;
     text-decoration: none;
@@ -12,7 +12,7 @@ select{
     border-radius: 20px;
     height: 40px;
     font-size: 18px;
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 select:focus{
@@ -29,7 +29,7 @@ textarea:focus{
 
 .doc-upload{
     input{
-        font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+        font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
         font-size: 12px;
         padding: 5px 0;
         width: 200px;
@@ -76,12 +76,12 @@ textarea:focus{
 
 p{
     font-size: 20px;
-    font-weight: 500;
+    // font-weight: 500;
     padding-top: 5px;
 }
 
 option{
-    font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     font-size: 16px;
     color: #000;
     text-decoration: none;   
@@ -110,7 +110,7 @@ option{
         height: 250px;
     }
     input{
-        font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+        font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
         font-size: 12px;
     }
 }
@@ -142,10 +142,10 @@ option{
 }
 
 .submit-btn{
-    font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     font-size: 22px;
     color:#fff;
-    font-weight: 500;
+    // font-weight: 500;
     background-color: #FF7A7A;
     border: 0;
     border-radius: 10px;

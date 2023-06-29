@@ -58,6 +58,7 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.registerForm.reset;
       console.log(this.registerService)
+      
       this.registerService.register(registerusers)
       .subscribe
         (res => {
@@ -93,5 +94,3 @@ export class RegisterComponent {
     }
   }
 }
-
-
