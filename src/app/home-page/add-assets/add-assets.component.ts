@@ -153,11 +153,11 @@ changeAssettype(event: any) {
     }
     //if user selected Houses
     if (value == this.Assets[1]) {
-     this.assetDetailone = this.flatservice.BHK;
-     this.assetDetailtwo = this.flatservice.Facing;
-     this.assetDetailthree = this.flatservice.propertystatus;
-     this.assetDetailfour = this.flatservice.FlatType;
-     this.assetDetailfive = this.flatservice.Age
+     this.assetDetailone = this.houseservice.BHK;
+     this.assetDetailtwo = this.houseservice.Facing;
+     this.assetDetailthree = this.houseservice.propertystatus;
+     this.assetDetailfour = this.houseservice.FlatType;
+     this.assetDetailfive = this.houseservice.Age
     }
     //if user selected Lands
     if (value == this.Assets[2]) {
