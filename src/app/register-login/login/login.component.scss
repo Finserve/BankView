@@ -16,7 +16,7 @@
 }
 
 input{
-    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     border: 2px solid #FF7A7A;
     border-radius: 10px;
     margin:10px;
@@ -34,7 +34,7 @@ input{
     border: none;
     width:150px;
     font-size: 18px;
-    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     padding: 10px;
     margin:10px;
 }
@@ -42,12 +42,12 @@ input{
 .signin{
     text-decoration: none;
     font-weight: 500;
-    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
     color:#9408D6
 }
 
 p{
-    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif;
 }
 
 .fogot-pwd{
@@ -85,7 +85,7 @@ input:focus{
 ::ng-deep .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){ 
     font-size: 16px !important;
     color: #FF7A7A !important;
-    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif !important; 
+    font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif !important;
     text-decoration: underline !important;
 }
 ::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface{
@@ -95,7 +95,7 @@ input:focus{
 ::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__label{
 font-size: 16px !important;
 color: #000 !important;
-font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif !important; 
+font-family: 'arial','Poppins',Helvetica,Arial,Lucida,sans-serif !important; 
 }
 ::ng-deep .mdc-snackbar .mat-mdc-snack-bar-container .mdc-snackbar--open .my-custom-snackbar {
 width: 100% !important;

@@ -100,9 +100,9 @@ export class AddAssetsComponent {
 
 
   Assets: Array<any> = [
-    'Bikes',
-    'Cars',
-    'Commercial vehicles',
+    // 'Bikes',
+    // 'Cars',
+    // 'Commercial vehicles',
     'Flats',
     'Houses',
     'Land',
@@ -120,36 +120,31 @@ changeAssettype(event: any) {
     // console.log(value);
 
     //if user selected Bikes
-    if (value == this.Assets[0]) {
-     this.assetDetailone = this.bikeservice.Brands;
-    //  for(let i=0;i<this.assetDetailone[1].brand;i++){
-    //   // console.log(this.assetDetailone[1].brand[i])
-    // this.first = this.assetDetailone[1].brand[i];
+    // if (value == this.Assets[0]) {
+    //  this.assetDetailone = this.bikeservice.Brands;
+    //  this.assetDetailtwo = this.bikeservice.Models;
+    //  this.assetDetailthree = this.bikeservice.Versions;
+    //  this.assetDetailfour = this.bikeservice.YearOfMake;
+    //  this.assetDetailfive = this.bikeservice.FuelType;
     // }
-    // this.option = this.first;
-     this.assetDetailtwo = this.bikeservice.Models;
-     this.assetDetailthree = this.bikeservice.Versions;
-     this.assetDetailfour = this.bikeservice.YearOfMake;
-     this.assetDetailfive = this.bikeservice.FuelType;
-    }
     //if user selected Cars
-    if (value == this.Assets[1]) {
-     this.assetDetailone = this.carservice.Brands;
-     this.assetDetailtwo = this.carservice.Models;
-     this.assetDetailthree = this.carservice.Versions;
-     this.assetDetailfour = this.carservice.YearOfMake;
-     this.assetDetailfive = this.carservice.FuelType;
-    }
+    // if (value == this.Assets[1]) {
+    //  this.assetDetailone = this.carservice.Brands;
+    //  this.assetDetailtwo = this.carservice.Models;
+    //  this.assetDetailthree = this.carservice.Versions;
+    //  this.assetDetailfour = this.carservice.YearOfMake;
+    //  this.assetDetailfive = this.carservice.FuelType;
+    // }
     //if user selected commercial vehicles
-    if (value == this.Assets[2]) {
-     this.assetDetailone = this.commercialservice.Brands;
-     this.assetDetailtwo = this.commercialservice.Models;
-     this.assetDetailthree = this.commercialservice.Versions;
-     this.assetDetailfour = this.commercialservice.YearOfMake;
-     this.assetDetailfive = this.commercialservice.FuelType;
-    }
+    // if (value == this.Assets[2]) {
+    //  this.assetDetailone = this.commercialservice.Brands;
+    //  this.assetDetailtwo = this.commercialservice.Models;
+    //  this.assetDetailthree = this.commercialservice.Versions;
+    //  this.assetDetailfour = this.commercialservice.YearOfMake;
+    //  this.assetDetailfive = this.commercialservice.FuelType;
+    // }
      //if user selected Flats
-     if (value == this.Assets[3]) {
+     if (value == this.Assets[0]) {
      this.assetDetailone = this.flatservice.BHK;
      this.assetDetailtwo = this.flatservice.Facing;
      this.assetDetailthree = this.flatservice.propertystatus;
@@ -157,7 +152,7 @@ changeAssettype(event: any) {
      this.assetDetailfive = this.flatservice.Age
     }
     //if user selected Houses
-    if (value == this.Assets[4]) {
+    if (value == this.Assets[1]) {
      this.assetDetailone = this.flatservice.BHK;
      this.assetDetailtwo = this.flatservice.Facing;
      this.assetDetailthree = this.flatservice.propertystatus;
@@ -165,7 +160,7 @@ changeAssettype(event: any) {
      this.assetDetailfive = this.flatservice.Age
     }
     //if user selected Lands
-    if (value == this.Assets[5]) {
+    if (value == this.Assets[2]) {
      this.assetDetailone = this.landservice.Area;
      this.assetDetailtwo = this.landservice.Ownership;
      this.assetDetailthree = this.landservice.boundarywall;
@@ -173,7 +168,7 @@ changeAssettype(event: any) {
      this.assetDetailfive = this.landservice.ElectricityandWater
     }
     //if user selected Sites
-    if (value == this.Assets[6]) {
+    if (value == this.Assets[3]) {
      this.assetDetailone = this.siteservice.Area;
      this.assetDetailtwo = this.siteservice.Ownership;
      this.assetDetailthree = this.siteservice.boundarywall;
@@ -181,7 +176,7 @@ changeAssettype(event: any) {
      this.assetDetailfive = this.siteservice.ElectricityandWater
     }
     //if user selected industrial lands&site with shed
-    if (value == this.Assets[7]) {
+    if (value == this.Assets[4]) {
      this.assetDetailone = this.industrialwithshedservice.Area;
      this.assetDetailtwo = this.industrialwithshedservice.Ownership;
      this.assetDetailthree = this.industrialwithshedservice.boundarywall;
@@ -189,7 +184,7 @@ changeAssettype(event: any) {
      this.assetDetailfive = this.industrialwithshedservice.ElectricityandWater
     }
     //if user selected industrial lands&site without shed
-    if (value == this.Assets[8]) {
+    if (value == this.Assets[5]) {
      this.assetDetailone = this.industrialwithoutshedservice.Area;
      this.assetDetailtwo = this.industrialwithoutshedservice.Ownership;
      this.assetDetailthree = this.industrialwithoutshedservice.boundarywall;

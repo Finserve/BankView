@@ -16,7 +16,7 @@ export class LoginRegisterapiService {
   // private baseUrl = "http://localhost:3000/Seller";
   private baseUrl="http://159.89.164.203:8081/";
   private registerUrl="api/register";
-  private loginUrl = "api/login";
+  private loginUrl = "login";
   private refreshTokenurl ="api/refresh-token";
 
   registerApi =`${this.baseUrl}${this.registerUrl}`;

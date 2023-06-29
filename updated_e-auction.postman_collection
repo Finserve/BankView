@@ -1,0 +1,1083 @@
+{
+	"info": {
+		"_postman_id": "61b31dad-4e43-4bf1-80a6-adc7af656a64",
+		"name": "GO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"xywz11@2gmail.com\",\n    \"password\":\"password\",\n    \"confirm_password\":\"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}register",
+					"host": [
+						"{{URL}}register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"xywz1@2gmail.com\",\n    \"password\":\"password\",\n    \"confirm_password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}register",
+							"host": [
+								"{{URL}}register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:48:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Registration successfully completed\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjowLCJleHAiOjE2ODY0NzQ5NjJ9.fJDEm-U9iSHqIMPCUxctsZ5e4Vob1-Cp8XS38XX804M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"xywz11@2gmail.com\",\n    \"password\":\"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}login",
+					"host": [
+						"{{URL}}login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"xyz1@gmail.com\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}login",
+							"host": [
+								"{{URL}}login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 15:36:00 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "447"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Token refreshed successfully\",\n    \"data\": {\n        \"id\": 10,\n        \"name\": \"\",\n        \"email\": \"xyz1@gmail.com\",\n        \"user_type\": 0,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODcxOTQ5NjB9.lGMMqzRR12AhBUA9n0XZDYjZ13v8Gg9XNMOIiGkI0J0\",\n        \"exp\": 1687308960\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODcyMTEwNjZ9.hsyRXXPrdmxyymAPKtVpQ_nCDwtnhefCWhp5fbicZm0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}refresh-token",
+					"host": [
+						"{{URL}}refresh-token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Refresh token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODcyMTEwNjZ9.hsyRXXPrdmxyymAPKtVpQ_nCDwtnhefCWhp5fbicZm0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}refresh-token",
+							"host": [
+								"{{URL}}refresh-token"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:48:25 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "390"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Token refreshed successfully\",\n    \"data\": {\n        \"exp\": 1687316905,\n        \"refresh-token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODcyMDI5MDV9.cB4BgAy0mGjKL_6xAUHdFA262iE8U7slNWcMkencXoc\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMTY5MDV9.oqCmU09VaPkeiqhYe1N8AC8ozTe-JD2q4tHqoBO9MbQ\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Flat",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl90eXBlIjowLCJleHAiOjM0ODcyODY4NTJ9.kejy57bcqcmSyRXtCkyy8KJ0Vyd3735mbAtjKCOi2Gg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "site_area",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "carpet_area",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "no_of_floors",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "age_of_building",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "is_corner_property",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "facing",
+							"value": "north",
+							"type": "text"
+						},
+						{
+							"key": "furnished_type",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "work",
+							"type": "text"
+						},
+						{
+							"key": "loan",
+							"value": "10.5",
+							"type": "text"
+						},
+						{
+							"key": "loan_payable",
+							"value": "10.4",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "ATP",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.34.01 AM.png",
+								"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.49.59 AM.png",
+								"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.50.08 AM.png",
+								"/Users/anil.reddy/Desktop/Screenshot 2023-05-31 at 1.19.08 PM.png"
+							]
+						},
+						{
+							"key": "npa_since",
+							"value": "2006-01-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}admin/add-flat",
+					"host": [
+						"{{URL}}admin"
+					],
+					"path": [
+						"add-flat"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Flat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODcyMTEwNjZ9.hsyRXXPrdmxyymAPKtVpQ_nCDwtnhefCWhp5fbicZm0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "site_area",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "carpet_area",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "no_of_floors",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "age_of_building",
+									"value": "32",
+									"type": "text"
+								},
+								{
+									"key": "is_corner_property",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "facing",
+									"value": "north",
+									"type": "text"
+								},
+								{
+									"key": "furnished_type",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "work",
+									"type": "text"
+								},
+								{
+									"key": "loan",
+									"value": "10.5",
+									"type": "text"
+								},
+								{
+									"key": "loan_payable",
+									"value": "10.4",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "ATP",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.34.01 AM.png",
+										"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.49.59 AM.png",
+										"/Users/anil.reddy/Desktop/Screenshot 2023-05-26 at 11.50.08 AM.png",
+										"/Users/anil.reddy/Desktop/Screenshot 2023-05-31 at 1.19.08 PM.png"
+									]
+								},
+								{
+									"key": "npa_since",
+									"value": "2006-01-01",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/add-flat",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"add-flat"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:47:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat added successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Flat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}admin/flats?limit=1&page=2",
+					"host": [
+						"{{URL}}admin"
+					],
+					"path": [
+						"flats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Flat",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODY4NzgwODl9.CbabVCHZthCnDa6_ZN-U36ke6B5mnMRyBQwVcxXEKQw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}admin/flat?limit=1&page=1",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"flat"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:47:17 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "451"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat featch successfully\",\n    \"data\": {\n        \"limit\": 1,\n        \"page\": 1,\n        \"sort\": \"Id desc\",\n        \"total_rows\": 3,\n        \"total_pages\": 3,\n        \"rows\": [\n            {\n                \"id\": 3,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 0,\n                    \"name\": \"\",\n                    \"email\": \"\"\n                },\n                \"images\": null\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Assign Flat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flat_id\":1,\n    \"users\":[\n        14\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}admin/assign-flat",
+					"host": [
+						"{{URL}}admin"
+					],
+					"path": [
+						"assign-flat"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Assign Flat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flat_id\":3,\n    \"users\":[\n        1,2,3,4,5,6,10\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}admin/assign-flat",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"assign-flat"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:47:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat assigned to users successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Users Flat",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}flats",
+					"host": [
+						"{{URL}}flats"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Users Flat",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}flats?limit=1&page=2",
+							"host": [
+								"{{URL}}flats"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Jun 2023 17:47:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "451"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat featch successfully\",\n    \"data\": {\n        \"limit\": 1,\n        \"page\": 2,\n        \"sort\": \"Id desc\",\n        \"total_rows\": 3,\n        \"total_pages\": 3,\n        \"rows\": [\n            {\n                \"id\": 2,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 0,\n                    \"name\": \"\",\n                    \"email\": \"\"\n                },\n                \"images\": null\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Get Users Flat",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}flats",
+							"host": [
+								"{{URL}}flats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Jun 2023 18:15:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1660"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat featch successfully\",\n    \"data\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"sort\": \"Id desc\",\n        \"total_rows\": 2,\n        \"total_pages\": 0,\n        \"rows\": [\n            {\n                \"id\": 2,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687284319.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687284319.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687284319.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687284319.png\"\n                ],\n                \"is_bidding_allow\": false,\n                \"is_bidded\": false,\n                \"bidded_info\": {\n                    \"bidding_id\": 0,\n                    \"amount\": 0\n                }\n            },\n            {\n                \"id\": 1,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687284297.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687284297.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687284297.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687284297.png\"\n                ],\n                \"is_bidding_allow\": true,\n                \"is_bidded\": true,\n                \"bidded_info\": {\n                    \"bidding_id\": 1,\n                    \"amount\": 111.1\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Flat list(without login)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}flats-list",
+					"host": [
+						"{{URL}}flats-list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Flat list(without login)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}flats-list",
+							"host": [
+								"{{URL}}flats-list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Jun 2023 17:28:12 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat featch successfully\",\n    \"data\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"sort\": \"Id desc\",\n        \"total_rows\": 6,\n        \"total_pages\": 0,\n        \"rows\": [\n            {\n                \"id\": 6,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687281555.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687281555.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687281555.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687281555.png\"\n                ]\n            },\n            {\n                \"id\": 5,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687281281.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687281281.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687281281.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687281281.png\"\n                ]\n            },\n            {\n                \"id\": 4,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687196865.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687196865.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687196865.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687196865.png\"\n                ]\n            },\n            {\n                \"id\": 3,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": [\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.34.01-am-1687191247.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.49.59-am-1687191247.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-26-at-11.50.08-am-1687191247.png\",\n                    \"http://localhost:8087/api/images/screenshot-2023-05-31-at-1.19.08-pm-1687191247.png\"\n                ]\n            },\n            {\n                \"id\": 2,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": null\n            },\n            {\n                \"id\": 1,\n                \"site_area\": \"test\",\n                \"carpet_area\": \"test\",\n                \"no_of_floors\": \"123\",\n                \"age_of_building\": 32,\n                \"is_corner_property\": true,\n                \"facing\": \"north\",\n                \"furnished_type\": \"test\",\n                \"description\": \"work\",\n                \"loan\": 10.5,\n                \"npa_since\": \"2006-01-01T00:00:00+05:30\",\n                \"loan_payable\": 10.4,\n                \"address\": \"ATP\",\n                \"user\": {\n                    \"id\": 10,\n                    \"name\": \"\",\n                    \"email\": \"xyz1@gmail.com\"\n                },\n                \"images\": null\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Bidding",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl90eXBlIjowLCJleHAiOjM0ODcyODY5ODd9.qEwZ3twIGsQqaJN0x5PAZeFS4WN5wvfpgEs9n8xyRM4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flat_id\":1,\n    \"amount\":111.10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}save-bidding",
+					"host": [
+						"{{URL}}save-bidding"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Bidding",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flat_id\":1,\n    \"amount\":111.10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}save-bidding",
+							"host": [
+								"{{URL}}save-bidding"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Jun 2023 17:44:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Bidding is successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Bidding",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl90eXBlIjowLCJleHAiOjM0ODcyODY5ODd9.qEwZ3twIGsQqaJN0x5PAZeFS4WN5wvfpgEs9n8xyRM4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bidding_id\":2,\n    \"flat_id\":1,\n    \"amount\":500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}update-bidding",
+					"host": [
+						"{{URL}}update-bidding"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Bidding",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bidding_id\":1,\n    \"flat_id\":1,\n    \"amount\":1.11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}update-bidding",
+							"host": [
+								"{{URL}}update-bidding"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Jun 2023 18:02:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Bidding is updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Bidding Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwidXNlcl90eXBlIjoxLCJleHAiOjE2ODczMDg5NjB9.dV_G4P0peYZKAoJPWRJ8EOSUd0UQKSZlzQPqFDXLgg4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}admin/get-bidding-info/2",
+					"host": [
+						"{{URL}}admin"
+					],
+					"path": [
+						"get-bidding-info",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Bidding Info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}admin/get-bidding-info/1",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"get-bidding-info",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Jun 2023 18:45:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "210"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"msg\": \"Flat featch successfully\",\n    \"data\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"sort\": \"Id desc\",\n        \"total_rows\": 11,\n        \"total_pages\": 0,\n        \"rows\": [\n            {\n                \"id\": 10,\n                \"name\": \"\",\n                \"email\": \"xyz1@gmail.com\",\n                \"bidding_id\": 1,\n                \"amount\": 111.1\n            }\n        ]\n    }\n}"
+				}
+			]
+		}
+	]
+}
