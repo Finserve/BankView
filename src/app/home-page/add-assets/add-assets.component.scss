@@ -4,6 +4,7 @@ p,label,input,input[placeholder]{
     color: #000;
     text-decoration: none;
 }
+
 select{
     border: 1px solid black;
     text-align: center;
@@ -13,15 +14,19 @@ select{
     font-size: 18px;
     font-weight: bold;
 }
+
 select:focus{
   outline: none;
 }
+
 input:focus{
     outline: none;
-  }
-  textarea:focus{
+}
+
+textarea:focus{
     outline: none;
-  }
+}
+
 .doc-upload{
     input{
         font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
@@ -29,33 +34,52 @@ input:focus{
         padding: 5px 0;
         width: 200px;
     }
+    background: none;
 }
 
-.addbtn, .removebtn{
+.addDoc-Btn, .addImg-Btn{
     width: max-content;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px;    
+}
+
+.addDoc-Btn{
     margin-bottom: 10px;
 }
 
-.deletebtn{
+.deleteDoc-Btn{
     width: fit-content;
     height: fit-content;
     border: none;
     border-radius: 5px;
     margin-bottom: 8px;
     padding-bottom: 5px;
+    // justify-items: ;
+}
+
+.deleteImg-Btn{
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    // color: white;
+    padding-bottom: 5px;
+    position: relative;
+    top: 25px;
+    left: 115px;
 }
 
 .select-assetType{
     margin-left: 20px;
     width: 28%;
 }
+
 p{
     font-size: 20px;
     font-weight: 500;
     padding-top: 5px;
 }
+
 option{
     font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
     font-size: 16px;
@@ -67,27 +91,30 @@ option{
     margin-top: 20px;
     padding-left: 40px;
     width: 100%;
-    // display: flex;
 }
+
 .text-danger{
     font-size: 18px !important;
     padding-left: 40px;
 }
+
 .row{
     width: 100%;
 }
+
 .img-container{
-    padding: 10px;
+    // padding: 10px;
     text-align: center;
-    img{
-   width: 250px;
-   height: 250px;
+    .previewScreen{
+        width: 250px;
+        height: 250px;
     }
     input{
         font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
         font-size: 12px;
     }
 }
+
 .input-fields{
     .col{
         padding: 10px;
@@ -114,7 +141,6 @@ option{
     -webkit-appearance: none; margin: 0; 
 }
 
-
 .submit-btn{
     font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
     font-size: 22px;
@@ -126,42 +152,30 @@ option{
     padding: 8px 18px;
     margin: 10px 0;
 }
-// .asset-details{
-//     display: flex;
-//     justify-content: space-between;
-// }
-// ::ng-deep .mat-form-field.mat-focused .mat-form-field-underline {
-//     display: none;
-//     opacity: 0;
-//     outline: none;
-//   }
 
-//   ::ng-deep  .mdc-line-ripple::after{
-//     border:  1px solid black !important;
-//   }
-//   ::ng-deep  .mdc-line-ripple::before{
-//     border:  1px solid black !important;
-//   }
-
-@media only screen and (max-width: 600px)  {
+@media only screen and (max-width: 672px){
     .first-dropdowwn,.text-danger{
         padding-left: 10px;
     }
     .asset-detail{
         text-align: center;
-    }
-  
+    }  
 }
-@media only screen and (min-width:992px) and (max-width: 1114px)  {
-    .assetDetailFifthSelect{
-        padding-top: 15px;
+
+@media only screen and (max-width: 797px)  {
+    .col-sm-6{
+       text-align: center;
+       padding: 10px;
     }
-    .img-container{
-        input{
-            width: 200px;
-        }
+    .row{
+       text-align: center;
     }
+    .doc-upload{
+       text-align: center;
+    }
+    
 }
+
 @media only screen and (min-width:768px) and (max-width: 991px)  {
     .assetDetailFifthSelect,.assetDetailFourthSelect{
         padding-top: 15px;
@@ -177,20 +191,13 @@ option{
     }
 }
 
-@media only screen and (max-width: 797px)  {
- .col-sm-6{
-    text-align: center;
-    padding: 10px;
- }
- .row{
-    text-align: center;
- }
- .doc-upload{
-    text-align: center;
-    input{
-        margin-top: 10px;
+@media only screen and (min-width:992px) and (max-width: 1114px)  {
+    .assetDetailFifthSelect{
+        padding-top: 15px;
+    }
+    .img-container{
+        input{
+            width: 200px;
+        }
     }
 }
-
-}
-// }

@@ -26,7 +26,7 @@ export class AddAssetsComponent {
   assetDetailfour: Array<any>;
   assetDetailfive: Array<any>;
   first;
-  imageSrcone;
+  imageSrcone
   imageSrctwo;
   imageSrcthree;
   imageSrcfour;
@@ -38,6 +38,7 @@ export class AddAssetsComponent {
   textShow1:any;
   option: any;
   assetDocuments: any;
+  assetImages: any;
   files: any;
 
 
@@ -70,16 +71,23 @@ export class AddAssetsComponent {
     // aliases: this.fb.array([
     //   this.fb.control('')
     // ])
-    assetImages:this.fb.group({
-      imageOne:[''],
-      imageTwo:[''],
-      imageThree:[''],
-      imageFour:[''],
-      imageFive:[''],
-      imageSix:[''],
-      imageSeven:[''],
-      imageEight:[''],
-    }),
+  //   
+  // assetImages: this.fb.group({
+    // this.fb.control('')
+    assetImages: this.fb.array([
+      this.fb.control('')
+    ]),
+
+    // assetImages:this.fb.group({
+    //   imageOne:[''],
+    //   imageTwo:[''],
+    //   imageThree:[''],
+    //   imageFour:[''],
+    //   imageFive:[''],
+    //   imageSix:[''],
+    //   imageSeven:[''],
+    //   imageEight:[''],
+    // }),
     assetDescription:this.fb.group({
       description:['', Validators.required],
       loanLended:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
@@ -92,12 +100,24 @@ export class AddAssetsComponent {
     return this.addAssets.get('assetDocuments') as FormArray;
   }
 
+  get assetimgs(){
+    return this.addAssets.get('assetImages') as FormArray;
+  }
+
   addAssetDocs(){
     this.assetDocs.push(this.fb.control(''));
   }
 
+  addAssetImages(){
+    this.assetimgs.push(this.fb.control(''));
+  }
+
   removeAssetDocs(index : number){
     this.assetDocs.removeAt(index);
+  }
+
+  removeAssetImgs(index : number){
+    this.assetimgs.removeAt(index);
   }
 
   onSubmit() {
@@ -113,10 +133,7 @@ export class AddAssetsComponent {
     this.formSubmitted = true;
     this.textShow = false;
     this.textShow1=true;
-    // console.log(this.addAssets.value);
   }
-
-
 
   Assets: Array<any> = [
     'Bikes',
@@ -128,13 +145,9 @@ export class AddAssetsComponent {
     'Sites',
     'Industrial land & site with shed',
     'Industrial land & site without shed'
-    // 'industrial sites with shed',
-    // 'industrial sites without shed',
-];
+  ];
 
-
-
-changeAssettype(event: any) {
+  changeAssettype(event: any) {
     const value = event.target.value;
 
     //if user selected Bikes
@@ -209,77 +222,50 @@ changeAssettype(event: any) {
      this.assetDetailfour = this.industrialwithoutshedservice.Security;
      this.assetDetailfive = this.industrialwithoutshedservice.ElectricityandWater
     }
-}
-
-readURLone(event): void {
-    if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = e => this.imageSrcone = reader.result;
-        reader.readAsDataURL(file);
-    }
-}
-
-readURLtwo(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrctwo = reader.result;
-      reader.readAsDataURL(file);
   }
-}
 
-readURLthree(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcthree = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
+  // doc upload
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    const fileSizeInBytes = file.size;
+    const maxSizeInBytes = 25 * 1024 * 1024; // 1MB
 
-readURLfour(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcfour = reader.result;
-      reader.readAsDataURL(file);
+    if (fileSizeInBytes > maxSizeInBytes) {
+      alert('File size exceeds the limit. Please choose a smaller file.');
+      // Optionally, you can clear the file input
+      event.target.value = null;
+    } 
   }
-}
 
-readURLfive(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcfive = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
+  // Img upload
+  readURLone(event:any): void {
+      const file: File = event.target.files[0];
+      const fileSizeInBytes = file.size;
+      const maxSizeInBytes = 1024 * 1024; // 1MB
 
-readURLsix(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcsix = reader.result;
-      reader.readAsDataURL(file);
+      if (fileSizeInBytes > maxSizeInBytes) {
+        alert('File size exceeds the limit. Please choose a smaller file.');
+        // Optionally, you can clear the file input
+        event.target.value = null;
+      } 
+      
+      if (event.target.files && event.target.files[0]) {
+          const file = event.target.files[0];
+          const reader = new FileReader();
+          reader.onload = e => this.imageSrcone = reader.result;
+          reader.readAsDataURL(file);
+      }
   }
-}
 
-readURLseven(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrcseven = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
-
-readURLeight(event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrceight = reader.result;
-      reader.readAsDataURL(file);
-  }
-}
+  // readURLone(event: any, index: number) {
+  //   const file = event.target.files[0];
+  //   const reader = new FileReader();
+  
+  //   reader.onload = (e: any) => {
+  //     this.imageSrcone[index] = e.target.result;
+  //   };
+  
+  //   reader.readAsDataURL(file);
+  // }
+  
 }
