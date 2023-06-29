@@ -11,12 +11,12 @@ import { IndustrialWithshedService } from 'src/app/services/dropdown services/in
 import { LandserviceService } from 'src/app/services/dropdown services/landservice.service';
 import { SiteserviceService } from 'src/app/services/dropdown services/siteservice.service';
 
+
 @Component({
   selector: 'app-add-assets',
   templateUrl: './add-assets.component.html',
   styleUrls: ['./add-assets.component.scss']
 })
-
 export class AddAssetsComponent {
   selectedassets: any;
   formSubmitted = false;
@@ -26,7 +26,7 @@ export class AddAssetsComponent {
   assetDetailfour: Array<any>;
   assetDetailfive: Array<any>;
   first;
-  imageSrcone
+  imageSrcone;
   imageSrctwo;
   imageSrcthree;
   imageSrcfour;
@@ -37,58 +37,44 @@ export class AddAssetsComponent {
   textShow:any;
   textShow1:any;
   option: any;
-  assetDocuments: any;
-  assetImages: any;
-  files: any;
 
 
 
   constructor(public fb: FormBuilder , private bikeservice: BikeserviceService , private carservice :CarserviceService, 
-              private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
-              private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
-              private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {}
+                    private commercialservice : CommercialVehicleServiceService, private flatservice: FlatserviceService,
+                    private houseservice: HouseserviceService,private landservice: LandserviceService,private siteservice : SiteserviceService,
+                    private industrialwithshedservice: IndustrialWithshedService,private industrialwithoutshedservice: IndustrialWithoutshedService) {
+                      // this.assetDetailone = this.bikeservice.Brands;
+                      // console.log(this.assetDetailone[1].brand[1])
+                      
+                     }
 
-
-              
   addAssets = this.fb.group({
     assetType: ['', Validators.required],
     assetsDetails: this.fb.group({
-      assetDetailone: ['', Validators.required],
-      assetDetailtwo:['', Validators.required],
-      assetDetailthree:['', Validators.required],
-      assetDetailfour:['', Validators.required],
-      assetDetailfive:['', Validators.required]
-      }),
-    assetDocuments: this.fb.array([
-      this.fb.control('')
-    ]),
-      // this.
-      // documentOne:[''],
-      // documentTwo:[''],
-      // documentThree:[''],
-      // documentFour:[''],
-    // }),
-    // aliases: this.fb.array([
-    //   this.fb.control('')
-    // ])
-  //   
-  // assetImages: this.fb.group({
-    // this.fb.control('')
-    assetImages: this.fb.array([
-      this.fb.control('')
-    ]),
-
-    // assetImages:this.fb.group({
-    //   imageOne:[''],
-    //   imageTwo:[''],
-    //   imageThree:[''],
-    //   imageFour:[''],
-    //   imageFive:[''],
-    //   imageSix:[''],
-    //   imageSeven:[''],
-    //   imageEight:[''],
-    // }),
-    assetDescription:this.fb.group({
+    assetDetailone: ['', Validators.required],
+    assetDetailtwo:['', Validators.required],
+    assetDetailthree:['', Validators.required],
+    assetDetailfour:['', Validators.required],
+    assetDetailfive:['', Validators.required]
+    }),
+    assetDocuments: this.fb.group({
+      documentOne:[''],
+      documentTwo:[''],
+      documentThree:[''],
+      documentFour:[''],
+    }),
+    assetImages:this.fb.group({
+      imageOne:[''],
+      imageTwo:[''],
+      imageThree:[''],
+      imageFour:[''],
+      imageFive:[''],
+      imageSix:[''],
+      imageSeven:[''],
+      imageEight:[''],
+    }),
+    assetDiscrition:this.fb.group({
       description:['', Validators.required],
       loanLended:['', Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
       loanRecovered:[null, Validators.compose([Validators.required, Validators.pattern('^[0-9*#+]+$')]) ],
@@ -96,44 +82,22 @@ export class AddAssetsComponent {
     })
   });
 
-  get assetDocs(){
-    return this.addAssets.get('assetDocuments') as FormArray;
-  }
-
-  get assetimgs(){
-    return this.addAssets.get('assetImages') as FormArray;
-  }
-
-  addAssetDocs(){
-    this.assetDocs.push(this.fb.control(''));
-  }
-
-  addAssetImages(){
-    this.assetimgs.push(this.fb.control(''));
-  }
-
-  removeAssetDocs(index : number){
-    this.assetDocs.removeAt(index);
-  }
-
-  removeAssetImgs(index : number){
-    this.assetimgs.removeAt(index);
-  }
-
   onSubmit() {
    
     if (this.addAssets.valid){
       console.log(this.addAssets.value);
       this.addAssets.reset();
-      this.textShow = true;
-      this.textShow1=false;
-      this.formSubmitted = false;
+    this.textShow = true;
+    this.textShow1=false;
+    this.formSubmitted = false;
       return;
     }
     this.formSubmitted = true;
     this.textShow = false;
     this.textShow1=true;
+    // console.log(this.addAssets.value);
   }
+
 
   Assets: Array<any> = [
     // 'Bikes',
@@ -145,13 +109,55 @@ export class AddAssetsComponent {
     'Sites',
     'Industrial land & site with shed',
     'Industrial land & site without shed'
-  ];
+    // 'industrial sites with shed',
+    // 'industrial sites without shed',
+];
 
-  changeAssettype(event: any) {
+
+
+changeAssettype(event: any) {
     const value = event.target.value;
+    // console.log(value);
 
     //if user selected Bikes
-
+    // if (value == this.Assets[0]) {
+    //  this.assetDetailone = this.bikeservice.Brands;
+    //  this.assetDetailtwo = this.bikeservice.Models;
+    //  this.assetDetailthree = this.bikeservice.Versions;
+    //  this.assetDetailfour = this.bikeservice.YearOfMake;
+    //  this.assetDetailfive = this.bikeservice.FuelType;
+    // }
+    //if user selected Cars
+    // if (value == this.Assets[1]) {
+    //  this.assetDetailone = this.carservice.Brands;
+    //  this.assetDetailtwo = this.carservice.Models;
+    //  this.assetDetailthree = this.carservice.Versions;
+    //  this.assetDetailfour = this.carservice.YearOfMake;
+    //  this.assetDetailfive = this.carservice.FuelType;
+    // }
+    //if user selected commercial vehicles
+    // if (value == this.Assets[2]) {
+    //  this.assetDetailone = this.commercialservice.Brands;
+    //  this.assetDetailtwo = this.commercialservice.Models;
+    //  this.assetDetailthree = this.commercialservice.Versions;
+    //  this.assetDetailfour = this.commercialservice.YearOfMake;
+    //  this.assetDetailfive = this.commercialservice.FuelType;
+    // }
+     //if user selected Flats
+     if (value == this.Assets[0]) {
+     this.assetDetailone = this.flatservice.BHK;
+     this.assetDetailtwo = this.flatservice.Facing;
+     this.assetDetailthree = this.flatservice.propertystatus;
+     this.assetDetailfour = this.flatservice.FlatType;
+     this.assetDetailfive = this.flatservice.Age
+    }
+    //if user selected Houses
+    if (value == this.Assets[1]) {
+     this.assetDetailone = this.houseservice.BHK;
+     this.assetDetailtwo = this.houseservice.Facing;
+     this.assetDetailthree = this.houseservice.propertystatus;
+     this.assetDetailfour = this.houseservice.FlatType;
+     this.assetDetailfive = this.houseservice.Age
     }
     //if user selected Lands
     if (value == this.Assets[2]) {
@@ -185,50 +191,71 @@ export class AddAssetsComponent {
      this.assetDetailfour = this.industrialwithoutshedservice.Security;
      this.assetDetailfive = this.industrialwithoutshedservice.ElectricityandWater
     }
+}
+
+
+readURLone(event): void {
+    if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = e => this.imageSrcone = reader.result;
+        reader.readAsDataURL(file);
+    }
+}
+readURLtwo(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrctwo = reader.result;
+      reader.readAsDataURL(file);
   }
-
-  // doc upload
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    const fileSizeInBytes = file.size;
-    const maxSizeInBytes = 25 * 1024 * 1024; // 1MB
-
-    if (fileSizeInBytes > maxSizeInBytes) {
-      alert('File size exceeds the limit. Please choose a smaller file.');
-      // Optionally, you can clear the file input
-      event.target.value = null;
-    } 
+}
+readURLthree(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrcthree = reader.result;
+      reader.readAsDataURL(file);
   }
-
-  // Img upload
-  readURLone(event:any): void {
-      const file: File = event.target.files[0];
-      const fileSizeInBytes = file.size;
-      const maxSizeInBytes = 1024 * 1024; // 1MB
-
-      if (fileSizeInBytes > maxSizeInBytes) {
-        alert('File size exceeds the limit. Please choose a smaller file.');
-        // Optionally, you can clear the file input
-        event.target.value = null;
-      } 
-      
-      if (event.target.files && event.target.files[0]) {
-          const file = event.target.files[0];
-          const reader = new FileReader();
-          reader.onload = e => this.imageSrcone = reader.result;
-          reader.readAsDataURL(file);
-      }
+}
+readURLfour(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrcfour = reader.result;
+      reader.readAsDataURL(file);
   }
-
-  // readURLone(event: any, index: number) {
-  //   const file = event.target.files[0];
-  //   const reader = new FileReader();
-  
-  //   reader.onload = (e: any) => {
-  //     this.imageSrcone[index] = e.target.result;
-  //   };
-  
-  //   reader.readAsDataURL(file);
-  // }
-  
+}
+readURLfive(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrcfive = reader.result;
+      reader.readAsDataURL(file);
+  }
+}
+readURLsix(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrcsix = reader.result;
+      reader.readAsDataURL(file);
+  }
+}
+readURLseven(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrcseven = reader.result;
+      reader.readAsDataURL(file);
+  }
+}
+readURLeight(event): void {
+  if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrceight = reader.result;
+      reader.readAsDataURL(file);
+  }
+}
 }
