@@ -25,12 +25,12 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login', component: LoginComponent },
   {path:'forgotpassword', component:ForgotPwdComponent},
-  // {path:'home',component:HomeComponent, canActivate:[AuthGuard] },  
-  // {path:'add-assets',component:AddAssetsComponent,canActivate:[AssetsauthGuard] },  
-  // {path:'asset-List',component:AssetListComponent,canActivate:[AuthGuard]}
-  {path:'home',component:HomeComponent },  
-  {path:'add-assets',component:AddAssetsComponent },  
-  {path:'asset-List',component:AssetListComponent }
+  {path:'home',component:HomeComponent, canActivate:[AuthGuard] },  
+  {path:'add-assets',component:AddAssetsComponent,canActivate:[AssetsauthGuard] },  
+  {path:'asset-List',component:AssetListComponent,canActivate:[AuthGuard]}
+  // {path:'home',component:HomeComponent },  
+  // {path:'add-assets',component:AddAssetsComponent },  
+  // {path:'asset-List',component:AssetListComponent }
 ];
 
 @NgModule({
